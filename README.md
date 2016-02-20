@@ -6,23 +6,24 @@
 
 The following functionality is completed:
 
-- [] Users can sign up via facebook
-- [] Users can join group
-- [] Users can make goals/nutrition plan in their profile
-- [] Message other users
-- [] Upload pictures
-- [] View progress calendar of nutrition
-- [] Alerts and notification when other rates/review their diet plan
-- [] Collection of recipes
-- [] Other users can make memes of food that you ate: "I'm unhealthy..." etc.
+- [ ] Users can sign up via facebook
+- [ ] Users can join group
+- [ ] Users can make goals/nutrition plan in their profile
+- [ ] Message other users
+- [ ] Upload pictures
+	- [ ] Via Imgur or other hosting 
+- [ ] View progress calendar of nutrition
+- [ ] Alerts and notification when other rates/review their diet plan
+- [ ] Collection of recipes
+- [ ] Other users can make memes of food that you ate: "I'm unhealthy..." etc.
 
 
 Optionals:
-- [] Videos of healthy food
-- [] Pull top health tip of the day via Twitter?
-- [] Pull nutritional data via picture
-- [] Restaurant users find healthy
-- [] Link store selling healthy food
+- [ ] Videos of healthy food
+- [ ] Pull top health tip of the day via Twitter?
+- [ ] Pull nutritional data via picture
+- [ ] Restaurant users find healthy
+- [ ] Link store selling healthy food
 
 Funny:
 - [] Healthy snack timer: Last time you ate something healthy
