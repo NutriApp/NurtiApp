@@ -26,7 +26,7 @@ Optionals:
 - [ ] Link store selling healthy food
 
 Funny:
-- [] Healthy snack timer: Last time you ate something healthy
+- [ ] Healthy snack timer: Last time you ate something healthy
 
 
 ## License
