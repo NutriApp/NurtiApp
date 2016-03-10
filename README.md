@@ -14,9 +14,7 @@ The following functionality is completed:
 	- [ ] Via Imgur or other hosting 
 - [ ] View progress calendar of nutrition
 - [ ] Alerts and notification when other rates/review their diet plan
-- [ ] Collection of recipes
-- [ ] Other users can make memes of food that you ate: "I'm unhealthy..." etc.
-
+- [ ] User settings
 
 Optionals:
 - [ ] Videos of healthy food
@@ -26,7 +24,7 @@ Optionals:
 - [ ] Link store selling healthy food
 
 Advance Optional: 
-- [ ] Users can check into or comment on a restaurant on their progress report regarding it's healthinest 
+- [ ] Users can check into or comment on a restaurant on their progress report regarding it's healthinest using Yelp API
     - [ ] Application consolidates all the user's data and create a map showing locations of healthy food
 
 Funny:
