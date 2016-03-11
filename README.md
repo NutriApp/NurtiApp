@@ -74,27 +74,28 @@ Parse Server Data Schema:
 
 
 Consideration:
-What is your product pitch?
-    Start with a problem statement and follow up with a solution.
+
+- What is your product pitch?
+    - Start with a problem statement and follow up with a solution.
         - There is no app that allows user to track serving of food and have supporters review it
-    Focus on engaging your audience with a relatable need.
+    - Focus on engaging your audience with a relatable need.
         - With a community of friends supporting you, you are more likely to stick to your goal
 
-Who are the key stakeholders for this app?
-    Who will be using this?
+- Who are the key stakeholders for this app?
+    - Who will be using this?
         - Someone who is watching what they are eating
     What will they be using this for?
         - Healthy lifestyle and feedback
 
-What are the core flows?
-    What are the key functions?
+- What are the core flows?
+    - What are the key functions?
         - Set goals and update daily progress using slide bars and pictures
         - Comments regarding their activity
-    What screens will each user see?
+    - What screens will each user see?
         - Home feed, Profile, Progress, Supporter, Menu, and Settings
 
-What will your final demo look like?
-    Describe the flow of your final demo
+- What will your final demo look like?
+    - Describe the flow of your final demo
         - User logs in and see their past activity and reads comments related to their activity
         - User updates their progress of the day and takes a picture of some food they ate
         - User goes to supporter page and reviews their supporter
@@ -104,17 +105,18 @@ What will your final demo look like?
         - User receives a notification and reads it
         - User adds a new supporter
 
-What mobile features do you leverage?
-    Leverage at least two mobile-oriented features (i.e. maps and camera)
+- What mobile features do you leverage?
+    - Leverage at least two mobile-oriented features (i.e. maps and camera)
         - Camera
         - Instant notification
         - Messaging
 
-What are your technical concerns?
-    What technical features do you need help or resources for?
-        - Seperate instances of group chats
+- What are your technical concerns?
+    - What technical features do you need help or resources for?
         - Notification
-        - Managing data related to image hosting and retrieving URL instead
+        - Parse Database
+        - Managing Parse data related to image hosting and retrieving URL instead
+        - Calendar
 
 ## License
 
