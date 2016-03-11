@@ -37,6 +37,7 @@ Funny:
 - [ ] Healthy snack timer: Last time you ate something healthy
 
 Parse Server Data Schema:
+
     [Users]
         User_ID - Int
         Profile_Image_URL - NSURL
