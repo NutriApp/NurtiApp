@@ -6,29 +6,71 @@
 
 The following functionality is completed:
 
-- [ ] Users can sign up via facebook
-- [ ] Users can join group
+- [ ] Users can sign up via Parse
 - [ ] Users can make goals/nutrition plan in their profile
-- [ ] Message other users
 - [ ] Upload pictures
-	- [ ] Via Imgur or other hosting 
+	- [ ] Via Parse or other hosting 
 - [ ] View progress calendar of nutrition
 - [ ] Alerts and notification when other rates/review their diet plan
 - [ ] User settings
+- [ ] Update Progress
+- [ ] Supporters/Supporting Feed
+    - [ ] Add/Delete Support
+    - [ ] Comment on feed
+    - [ ] Like
 
 Optionals:
 - [ ] Videos of healthy food
+    - [ ] User recorded video
 - [ ] Pull top health tip of the day via Twitter?
-- [ ] Pull nutritional data via picture
-- [ ] Restaurant users find healthy
-- [ ] Link store selling healthy food
+- [ ] Link to store selling healthy food
+- [ ] Healthy Recipes
 
 Advance Optional: 
 - [ ] Users can check into or comment on a restaurant on their progress report regarding it's healthinest using Yelp API
     - [ ] Application consolidates all the user's data and create a map showing locations of healthy food
+        - [ ] Google Map API + Parse data
+    - [ ] Restaurant users find healthy
+
 
 Funny:
 - [ ] Healthy snack timer: Last time you ate something healthy
+
+Parse Server Data Schema:
+    [Users]
+        User_ID - Int
+        Profile_Image_URL - NSURL
+        Name - String
+        Age - Int
+        Last_Updated - NSDate
+        .
+        .
+        [Plan]
+            Goal - String
+            [Food Group]
+                Vegi - String
+                    Serving - Int
+                .
+                .
+        [Supporters/Supporting]
+            [Users]
+                User_ID - Int
+                Relationship - String
+
+    [Media]
+        User_ID - Int
+        Profile_Image_Url - NSURL
+        Food_Image - NSURL
+        Caption - String
+        Created_At - NSDate
+        Progress_Percentage
+        Like_Count - int
+        [Comments]
+            Meal_type - Int
+            Emocon - Int
+            User_ID - Int
+            Comment - String
+
 
 Consideration:
 What is your product pitch?
