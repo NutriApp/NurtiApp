@@ -11,8 +11,13 @@ import UIKit
 class MainNavigationController: UINavigationController {
     
     private var mainSelectedObserver: NSObjectProtocol?
-    private var leftSelectedObserver: NSObjectProtocol?
-    private var rightSelectedObserver: NSObjectProtocol?
+    private var manageProgressSelectedObserver: NSObjectProtocol?
+    private var planSelectedObserver: NSObjectProtocol?
+    private var manageSupporterSelectedObserver: NSObjectProtocol?
+    private var supportingSelectedObserver: NSObjectProtocol?
+    private var calendarSelectedObserver: NSObjectProtocol?
+    private var profileSelectedObserver: NSObjectProtocol?
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,14 +38,34 @@ class MainNavigationController: UINavigationController {
             self.setViewControllers([mvc], animated: true)
         }
         
-        leftSelectedObserver = center.addObserverForName(MenuViewController.Notifications.LeftSelected, object: nil, queue: nil) { (notification: NSNotification!) in
-            let rvc = storyboard.instantiateViewControllerWithIdentifier("LeftViewController") 
-            self.setViewControllers([rvc], animated: true)
+        manageProgressSelectedObserver = center.addObserverForName(MenuViewController.Notifications.ManageProgressSelected, object: nil, queue: nil) { (notification: NSNotification!) in
+            let vc = storyboard.instantiateViewControllerWithIdentifier("ManageProgressViewController")
+            self.setViewControllers([vc], animated: true)
         }
         
-        rightSelectedObserver = center.addObserverForName(MenuViewController.Notifications.RightSelected, object: nil, queue: nil) { (notification: NSNotification!) in
-            let gvc = storyboard.instantiateViewControllerWithIdentifier("RightViewController") 
-            self.setViewControllers([gvc], animated: true)
+        planSelectedObserver = center.addObserverForName(MenuViewController.Notifications.PlanSelected, object: nil, queue: nil) { (notification: NSNotification!) in
+            let vc = storyboard.instantiateViewControllerWithIdentifier("PlanViewController")
+            self.setViewControllers([vc], animated: true)
+        }
+        
+        manageSupporterSelectedObserver = center.addObserverForName(MenuViewController.Notifications.ManageSupporterSelected, object: nil, queue: nil) { (notification: NSNotification!) in
+            let vc = storyboard.instantiateViewControllerWithIdentifier("ManageSupporterViewController")
+            self.setViewControllers([vc], animated: true)
+        }
+        
+        supportingSelectedObserver = center.addObserverForName(MenuViewController.Notifications.SupportingSelected, object: nil, queue: nil) { (notification: NSNotification!) in
+            let vc = storyboard.instantiateViewControllerWithIdentifier("SupportingViewController")
+            self.setViewControllers([vc], animated: true)
+        }
+        
+        calendarSelectedObserver = center.addObserverForName(MenuViewController.Notifications.CalendarSelected, object: nil, queue: nil) { (notification: NSNotification!) in
+            let vc = storyboard.instantiateViewControllerWithIdentifier("CalendarViewController")
+            self.setViewControllers([vc], animated: true)
+        }
+        
+        calendarSelectedObserver = center.addObserverForName(MenuViewController.Notifications.ProfileSelected, object: nil, queue: nil) { (notification: NSNotification!) in
+            let vc = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
+            self.setViewControllers([vc], animated: true)
         }
     }
     
@@ -50,11 +75,23 @@ class MainNavigationController: UINavigationController {
         if mainSelectedObserver !=  nil {
             center.removeObserver(mainSelectedObserver!)
         }
-        if leftSelectedObserver != nil {
-            center.removeObserver(leftSelectedObserver!)
+        if manageProgressSelectedObserver != nil {
+            center.removeObserver(manageProgressSelectedObserver!)
         }
-        if rightSelectedObserver != nil {
-            center.removeObserver(rightSelectedObserver!)
+        if planSelectedObserver != nil {
+            center.removeObserver(planSelectedObserver!)
+        }
+        if manageSupporterSelectedObserver != nil {
+            center.removeObserver(manageSupporterSelectedObserver!)
+        }
+        if supportingSelectedObserver != nil {
+            center.removeObserver(supportingSelectedObserver!)
+        }
+        if calendarSelectedObserver != nil {
+            center.removeObserver(calendarSelectedObserver!)
+        }
+        if profileSelectedObserver != nil {
+            center.removeObserver(profileSelectedObserver!)
         }
     }
     

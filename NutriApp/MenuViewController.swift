@@ -19,8 +19,12 @@ class MenuViewController: UITableViewController {
     
     struct Notifications {
         static let MainSelected = "MainSelected"
-        static let LeftSelected = "RedSelected"
-        static let RightSelected = "GreenSelected"
+        static let ManageProgressSelected = "ManageProgressSelected"
+        static let PlanSelected = "PlanSelected"
+        static let ManageSupporterSelected = "ManageSupporterSelected"
+        static let SupportingSelected = "SupportingSelected"
+        static let CalendarSelected = "CalendarSelected"
+        static let ProfileSelected = "ProfileSelected"
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -31,9 +35,17 @@ class MenuViewController: UITableViewController {
         case 0:
             center.postNotification(NSNotification(name: Notifications.MainSelected, object: self))
         case 1:
-            center.postNotification(NSNotification(name: Notifications.RightSelected, object: self))
+            center.postNotification(NSNotification(name: Notifications.ManageProgressSelected, object: self))
         case 2:
-            center.postNotification(NSNotification(name: Notifications.LeftSelected, object: self))
+            center.postNotification(NSNotification(name: Notifications.PlanSelected, object: self))
+        case 3:
+            center.postNotification(NSNotification(name: Notifications.ManageSupporterSelected, object: self))
+        case 4:
+            center.postNotification(NSNotification(name: Notifications.SupportingSelected, object: self))
+        case 5:
+            center.postNotification(NSNotification(name: Notifications.CalendarSelected, object: self))
+        case 6:
+            center.postNotification(NSNotification(name: Notifications.ProfileSelected, object: self))
         default:
             print("Unrecognized menu index")
             return

@@ -1,5 +1,5 @@
 //
-//  LeftViewController.swift
+//  CalendarViewController.swift
 //  NutriApp
 //
 //  Created by Kevin Tran on 3/31/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LeftViewController: UIViewController {
+class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  RightViewController.swift
+//  ManageSupporterViewController.swift
 //  NutriApp
 //
 //  Created by Kevin Tran on 3/31/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RightViewController: UIViewController {
+class ManageSupporterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
