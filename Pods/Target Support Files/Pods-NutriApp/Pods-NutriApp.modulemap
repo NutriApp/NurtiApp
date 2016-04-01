@@ -1,0 +1,6 @@
+framework module Pods_NutriApp {
+  umbrella header "Pods-NutriApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
