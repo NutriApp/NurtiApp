@@ -257,7 +257,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3Z-bP-dWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="-236"/>
+            <point key="canvasLocation" x="1618" y="-236"/>
         </scene>
         <!--Manage Progress View Controller-->
         <scene sceneID="9Rw-YK-6Fi">
@@ -297,14 +297,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma2-fv-LLa">
-                                <rect key="frame" x="60" y="116" width="33" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0cJ-OX-EL2">
+                                <rect key="frame" x="0.0" y="52" width="320" height="516"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="aPX-38-3IN">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aPX-38-3IN" id="g9u-c2-dk8">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V2f-cr-e4p" firstAttribute="top" secondItem="0cJ-OX-EL2" secondAttribute="bottom" id="Afb-0L-JCf"/>
+                            <constraint firstItem="0cJ-OX-EL2" firstAttribute="leading" secondItem="XqV-I8-Pck" secondAttribute="leading" id="EPM-uD-DWh"/>
+                            <constraint firstAttribute="trailing" secondItem="0cJ-OX-EL2" secondAttribute="trailing" id="Vc4-Wd-iOt"/>
+                            <constraint firstItem="0cJ-OX-EL2" firstAttribute="top" secondItem="hEG-H3-cly" secondAttribute="bottom" id="ztw-j1-foX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9f-AA-309" userLabel="First Responder" sceneMemberID="firstResponder"/>

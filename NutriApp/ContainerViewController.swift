@@ -5,6 +5,7 @@
 //  Created by Kevin Tran on 3/31/16.
 //  Copyright © 2016 Kevin Tran. All rights reserved.
 //
+//  Credit to https://github.com/denniss/slideout
 
 import UIKit
 
