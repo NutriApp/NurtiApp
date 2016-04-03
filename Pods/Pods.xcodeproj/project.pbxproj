@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a95216b22eb55c631d0e06a695969354b1c6e2c2
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -12498,6 +12501,7 @@
 	<string>D41D8CD98F00B204E9800998ECF8427E</string>
 </dict>
 </plist>
+<<<<<<< HEAD
 =======
 // !$*UTF8*$!
 {
@@ -14762,3 +14766,5 @@
 	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }
 >>>>>>> 035ee741fbc0502eaec7caf87492e28156346b95
+=======
+>>>>>>> a95216b22eb55c631d0e06a695969354b1c6e2c2
