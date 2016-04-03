@@ -6,12 +6,11 @@
 
 The following functionality is completed:
 
-- [ ] Users can sign up via Parse
+- [x] Users can sign up via Parse
+- [x] Pull Out menu
 - [ ] Users can make goals/nutrition plan in their profile
 - [ ] Upload pictures
 	- [ ] Via Parse or other hosting 
-- [ ] View progress calendar of nutrition
-- [ ] Alerts and notification when other rates/review their diet plan
 - [ ] User settings
 - [ ] Update Progress
 - [ ] Supporters/Supporting Feed
@@ -20,6 +19,8 @@ The following functionality is completed:
     - [ ] Like
 
 Optionals:
+- [ ] View progress calendar of nutrition
+- [ ] Alerts and notification when other rates/review their diet plan
 - [ ] Videos of healthy food
     - [ ] User recorded video
 - [ ] Pull top health tip of the day via Twitter?
