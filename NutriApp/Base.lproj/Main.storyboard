@@ -36,7 +36,7 @@
         <!--Start View Controller-->
         <scene sceneID="1F4-aN-ebF">
             <objects>
-                <viewController id="IZG-W0-mq6" customClass="StartViewController" customModule="NutriApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="IZG-W0-mq6" customClass="StartViewController" customModule="NutriApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AuC-LV-foB"/>
                         <viewControllerLayoutGuide type="bottom" id="SVB-bS-lIe"/>
@@ -48,8 +48,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="xjw-2Y-DY0"/>
                     <connections>
-                        <segue destination="AF1-4x-uyT" kind="push" identifier="toLoginSegue" id="Pqd-3L-CmU"/>
                         <segue destination="2Sy-3w-Qe7" kind="modal" identifier="toMainSegue" id="X8W-xH-ak7"/>
+                        <segue destination="AF1-4x-uyT" kind="modal" identifier="toLoginSegue" id="Qzp-p3-Zwt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSB-RC-rxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -59,7 +59,6 @@
         <!--Login View Controller-->
         <scene sceneID="hb0-vS-ZrV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Cc-Jt-tUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="AF1-4x-uyT" customClass="LoginViewController" customModule="NutriApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2X5-CP-XiC"/>
@@ -77,18 +76,18 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnG-7d-msT">
                                 <rect key="frame" x="90" y="191" width="141" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8c-zA-ML9">
                                 <rect key="frame" x="90" y="162" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z82-Ie-NtS">
                                 <rect key="frame" x="90" y="62" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-nX-iY2">
@@ -112,9 +111,10 @@
                     <connections>
                         <outlet property="passwordField" destination="tnG-7d-msT" id="z4h-ZK-Uu3"/>
                         <outlet property="userNameField" destination="Xu0-bJ-csU" id="iDo-da-0Sy"/>
-                        <segue destination="2Sy-3w-Qe7" kind="push" identifier="toMain" id="KmG-gS-S4X"/>
+                        <segue destination="2Sy-3w-Qe7" kind="modal" identifier="toMain" id="hvW-rC-kwL"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Cc-Jt-tUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1291" y="-290"/>
         </scene>
@@ -396,7 +396,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-av-LZE">
                                                     <rect key="frame" x="8" y="8" width="55" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rie-Zg-WUg">
@@ -536,24 +536,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTo-sr-7aa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="237" y="407"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Yay-RY-COQ">
-            <objects>
-                <navigationController storyboardIdentifier="StartNavController" automaticallyAdjustsScrollViewInsets="NO" id="RCZ-ne-NFR" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6kh-Pt-ImI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="IZG-W0-mq6" kind="relationship" relationship="rootViewController" id="4bF-1y-mSQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4iN-ei-6qV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="375" y="-297"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

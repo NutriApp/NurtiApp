@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Set Inital View Controller
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewControllerWithIdentifier("StartNavController")
+        let initialViewController = storyboard.instantiateViewControllerWithIdentifier("StartViewController")
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
 
