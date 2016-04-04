@@ -74,6 +74,7 @@ Parse Server Data Schema:
             Comment - String
 
 <img src='http://i.imgur.com/jKl6VFH.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 <img src = 'http://i.imgur.com/VPv52xT.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
