@@ -8,10 +8,13 @@
 
 import UIKit
 
-class PlanViewController: UIViewController {
+class PlanViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PlanViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +24,15 @@ class PlanViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    //TBD: Need to add database component and local save for the plan settings
 
     /*
     // MARK: - Navigation
