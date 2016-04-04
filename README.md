@@ -73,6 +73,9 @@ Parse Server Data Schema:
             User_ID - Int
             Comment - String
 
+<img src='http://i.imgur.com/jKl6VFH.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 
 Consideration:
 
