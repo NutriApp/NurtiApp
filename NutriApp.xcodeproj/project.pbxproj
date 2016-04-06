@@ -114,7 +114,10 @@
 		BC60F2681CADE02D00642522 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				88C667B11CB1D134005A53AB /* StartViewController.swift */,
+				88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */,
 				BC60F25A1CADA11100642522 /* ContainerViewController.swift */,
+				BC60F2581CAD9FA100642522 /* MenuViewController.swift */,
 				BC60F25E1CADCE2000642522 /* ManageProgressViewController.swift */,
 				BC60F2601CADCE3000642522 /* ManageSupporterViewController.swift */,
 				BC60F2621CADCE3900642522 /* SupportingViewController.swift */,
@@ -122,9 +125,6 @@
 				BC60F2661CADCE4C00642522 /* ProfileViewController.swift */,
 				BC60F24E1CAD96D200642522 /* PlanViewController.swift */,
 				BC60F2501CAD978A00642522 /* MainViewController.swift */,
-				BC60F2581CAD9FA100642522 /* MenuViewController.swift */,
-				88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */,
-				88C667B11CB1D134005A53AB /* StartViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
