@@ -7,11 +7,7 @@
 The following functionality is completed:
 
 - [x] Users can sign up via Parse
-<<<<<<< HEAD
-- [x] Pull Out menu
-=======
 - [x] pull out menu
->>>>>>> development
 - [ ] Users can make goals/nutrition plan in their profile
 - [ ] Upload pictures
 	- [ ] Via Parse or other hosting 
