@@ -7,9 +7,24 @@
 //
 
 import UIKit
+import Parse
 
 class PlanViewController: UITableViewController {
 
+    @IBOutlet weak var goalText: UITextView!
+    @IBOutlet weak var proteinSwitch: UISwitch!
+    @IBOutlet weak var proteinSlider: UISlider!
+    @IBOutlet weak var fruitSwitch: UISwitch!
+    @IBOutlet weak var fruitSlider: UISlider!
+    @IBOutlet weak var vegetableSwitch: UISwitch!
+    @IBOutlet weak var vegetableSlider: UISlider!
+    @IBOutlet weak var grainSwitch: UISwitch!
+    @IBOutlet weak var grainSlider: UISlider!
+    @IBOutlet weak var dairySwitch: UISwitch!
+    @IBOutlet weak var dairySlider: UISlider!
+    @IBOutlet weak var oilSwitch: UIView!
+    @IBOutlet weak var oilSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +45,12 @@ class PlanViewController: UITableViewController {
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    @IBAction func onSave(sender: UIButton) {
+    }
+    
+    @IBAction func onCancel(sender: UIButton) {
     }
     
     //TBD: Need to add database component and local save for the plan settings
