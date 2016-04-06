@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,9 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //Initialize Parse
+        Parse.initializeWithConfiguration(
+            ParseClientConfiguration(block:
+                { (configuration:ParseMutableClientConfiguration) -> Void in
+                    configuration.applicationId = "NutriApp"
+                    configuration.clientKey = "1i985u4083q4iefn13094JAJEOFDA J03"
+                    configuration.server = "https://vast-inlet-77739.herokuapp.com/parse"
+            }))
+        
+        //Set Inital View Controller
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewControllerWithIdentifier("StartViewController")
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
 
-        // create viewController code...
-                
         return true
     }
 
