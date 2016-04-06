@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4314C91A53FA7B80BEC9145D /* Pods_NutriApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5528C040D3AAFF20DD48F1 /* Pods_NutriApp.framework */; };
+		885F6A721CB4AE98009D6E14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F6A711CB4AE98009D6E14 /* User.swift */; };
 		88C667B01CB1C7B0005A53AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */; };
 		88C667B21CB1D134005A53AB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667B11CB1D134005A53AB /* StartViewController.swift */; };
 		BC04E6231C76C46A0092CC46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04E6221C76C46A0092CC46 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		4838F0E4F5335885F1E850C7 /* Pods-NutriApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NutriApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NutriApp/Pods-NutriApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5F7D1BF66BAAA4414B5D7EA2 /* Pods-NutriApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NutriApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NutriApp/Pods-NutriApp.release.xcconfig"; sourceTree = "<group>"; };
+		885F6A711CB4AE98009D6E14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C667B11CB1D134005A53AB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		BC04E61F1C76C46A0092CC46 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		885F6A701CB4AE77009D6E14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				885F6A711CB4AE98009D6E14 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		9BB9F386C6ACAF060C288A26 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		BC04E6211C76C46A0092CC46 /* NutriApp */ = {
 			isa = PBXGroup;
 			children = (
+				885F6A701CB4AE77009D6E14 /* Models */,
 				BC60F2681CADE02D00642522 /* ViewControllers */,
 				BC04E6221C76C46A0092CC46 /* AppDelegate.swift */,
 				BC04E6261C76C46A0092CC46 /* Main.storyboard */,
@@ -257,6 +268,7 @@
 				BC60F2651CADCE4300642522 /* CalendarViewController.swift in Sources */,
 				BC60F25F1CADCE2000642522 /* ManageProgressViewController.swift in Sources */,
 				BC60F25B1CADA11100642522 /* ContainerViewController.swift in Sources */,
+				885F6A721CB4AE98009D6E14 /* User.swift in Sources */,
 				BC60F2671CADCE4C00642522 /* ProfileViewController.swift in Sources */,
 				BC60F2611CADCE3000642522 /* ManageSupporterViewController.swift in Sources */,
 				88C667B21CB1D134005A53AB /* StartViewController.swift in Sources */,
