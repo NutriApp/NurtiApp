@@ -11,6 +11,7 @@
 		885F6A721CB4AE98009D6E14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F6A711CB4AE98009D6E14 /* User.swift */; };
 		88C667B01CB1C7B0005A53AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */; };
 		88C667B21CB1D134005A53AB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667B11CB1D134005A53AB /* StartViewController.swift */; };
+		88EDB6BE1CB723C300338B2D /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EDB6BD1CB723C300338B2D /* ProfileEditViewController.swift */; };
 		BC04E6231C76C46A0092CC46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04E6221C76C46A0092CC46 /* AppDelegate.swift */; };
 		BC04E6281C76C46A0092CC46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC04E6261C76C46A0092CC46 /* Main.storyboard */; };
 		BC04E62A1C76C46A0092CC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC04E6291C76C46A0092CC46 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		885F6A711CB4AE98009D6E14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C667B11CB1D134005A53AB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		88EDB6BD1CB723C300338B2D /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		BC04E61F1C76C46A0092CC46 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC04E6221C76C46A0092CC46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC04E6271C76C46A0092CC46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				BC60F2621CADCE3900642522 /* SupportingViewController.swift */,
 				BC60F2641CADCE4300642522 /* CalendarViewController.swift */,
 				BC60F2661CADCE4C00642522 /* ProfileViewController.swift */,
+				88EDB6BD1CB723C300338B2D /* ProfileEditViewController.swift */,
 				BC60F24E1CAD96D200642522 /* PlanViewController.swift */,
 				BC60F2501CAD978A00642522 /* MainViewController.swift */,
 			);
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C667B01CB1C7B0005A53AB /* LoginViewController.swift in Sources */,
+				88EDB6BE1CB723C300338B2D /* ProfileEditViewController.swift in Sources */,
 				BC60F25D1CADA7ED00642522 /* MainNavigationController.swift in Sources */,
 				BC60F2631CADCE3900642522 /* SupportingViewController.swift in Sources */,
 				BC60F2651CADCE4300642522 /* CalendarViewController.swift in Sources */,

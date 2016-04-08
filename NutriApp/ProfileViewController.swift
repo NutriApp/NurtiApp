@@ -20,16 +20,36 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    var user = PFUser.currentUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        idLabel.text = PFUser.currentUser()!.objectId
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if let name = user!["name"] as? String {
+            nameLabel.text = name
+        }
+        if let email = user!["email"] as? String {
+            emailLabel.text = email
+        }
+        if let weight = user!["weight"] as? String {
+            weightLabel.text = weight
+        }
+        if let gender = user!["gender"] as? String {
+            genderLabel.text = gender
+        }
+        if let age = user!["age"] as? String {
+            ageLabel.text = age
+        }
+        if let role = user!["role"] as? String {
+            roleLabel.text = role
+        }
+        if let goal = user!["goal"] as? String {
+            goalLabel.text = goal
+        }
         
     }
 

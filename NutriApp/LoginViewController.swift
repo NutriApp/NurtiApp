@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
                 //Segue to home screen
                 self.performSegueWithIdentifier("toMain", sender: nil)
                 
-                //Error Signing in
+            //Error Signing in
             } else {
                 //Invalid user name or password
                 if error!.code == 101 {
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
                     alertController.addAction(cancelAction)
                     self.presentViewController(alertController, animated: true, completion: nil)
                     
-                    //Other error
+                //Other error
                 } else {
                     //Show alert
                     let alertController = UIAlertController(title: "Error", message: "Error Logging In: CHeck XCode comsol for more details",preferredStyle: .Alert)
@@ -63,6 +63,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func onSignUp(sender: AnyObject) {
         let newUser = PFUser()
+        
         //Get user name and password from text fields
         newUser.username = userNameField.text
         newUser.password = passwordField.text
@@ -73,7 +74,7 @@ class LoginViewController: UIViewController {
                 //Segue to home screen
                 self.performSegueWithIdentifier("toMain", sender: nil)
                 
-                //Failure
+            //Failure
             } else {
                 print(error?.localizedDescription)
                 //If user name already exists
@@ -85,7 +86,7 @@ class LoginViewController: UIViewController {
                     alertController.addAction(cancelAction)
                     self.presentViewController(alertController, animated: true, completion: nil)
                     
-                    //Other error
+                //Other error
                 } else {
                     //show alert
                     let alertController = UIAlertController(title: "Error", message: "Error Sigining Up: Check XCode comsol for more details",preferredStyle: .Alert)
