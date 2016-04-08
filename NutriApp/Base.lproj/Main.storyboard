@@ -804,6 +804,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CHs-vU-YNI">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="T8k-c6-tIj">
+                            <connections>
+                                <action selector="onLogout:" destination="5tm-tK-gnx" id="qWE-I0-HSq"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="6uG-I5-G0t">
                             <connections>
                                 <segue destination="EkH-KL-odw" kind="push" id="2Ti-wW-4T7"/>

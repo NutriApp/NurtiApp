@@ -13,7 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //Initialize Parse
@@ -27,12 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Set Inital View Controller
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewControllerWithIdentifier("StartViewController")
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
-
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: "userDidLogoutNotification", object: nil)
         return true
+    }
+    
+    //Logout Function
+    func userDidLogout() {
+        let vc = storyboard.instantiateViewControllerWithIdentifier("StartViewController")
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {

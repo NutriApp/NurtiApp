@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class MenuViewController: UITableViewController {
 
@@ -25,6 +26,7 @@ class MenuViewController: UITableViewController {
         static let SupportingSelected = "SupportingSelected"
         static let CalendarSelected = "CalendarSelected"
         static let ProfileSelected = "ProfileSelected"
+        static let LogOutSelected = "LogoutSelected"
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
