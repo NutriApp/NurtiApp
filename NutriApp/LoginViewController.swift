@@ -70,6 +70,18 @@ class LoginViewController: UIViewController {
         newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("user created")
+                var userPlan = PFObject(className: "Plan")
+                var log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
+                userPlan["plan"] = log
+                userPlan.saveInBackgroundWithBlock({ (success2: Bool, error2: NSError?) -> Void in
+                    if (success2) {
+                        print("added plan")
+                    }
+                    else {
+                        print("failed with error \(error2)")
+                    }
+                })
+                
                 //Segue to home screen
                 self.performSegueWithIdentifier("toMain", sender: nil)
                 

@@ -425,7 +425,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5v-Ze-xEJ">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-7I-lMN">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-7I-lMN">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
                                                 </slider>
                                             </subviews>
@@ -456,7 +456,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhn-xg-45v">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="afE-XG-ejl">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="afE-XG-ejl">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
                                                 </slider>
                                             </subviews>
@@ -478,18 +478,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="82.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oBd-d8-MzU">
+                                                    <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                </switch>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="wON-wT-wvJ">
+                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
+                                                </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegetable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEF-lL-Ccb">
                                                     <rect key="frame" x="15" y="8" width="77" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oBd-d8-MzU">
-                                                    <rect key="frame" x="256" y="3" width="51" height="31"/>
-                                                </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wON-wT-wvJ">
-                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
-                                                </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wON-wT-wvJ" firstAttribute="top" secondItem="oBd-d8-MzU" secondAttribute="bottom" constant="3" id="3vq-Wv-xr3"/>
@@ -515,7 +515,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jNL-cy-22l">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="jNL-cy-22l">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
                                                 </slider>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ia4-b1-FRL">
@@ -549,7 +549,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GGH-A6-y9E">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="I6d-2A-G4F">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="I6d-2A-G4F">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
                                                 </slider>
                                             </subviews>
@@ -580,7 +580,7 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PKi-YD-i5m">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gv8-4d-qMv">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="gv8-4d-qMv">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
                                                 </slider>
                                             </subviews>
@@ -643,17 +643,23 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="dairyLabel" destination="hb4-el-yAB" id="4uJ-Qf-2Y5"/>
                         <outlet property="dairySlider" destination="I6d-2A-G4F" id="EtL-ls-Qbk"/>
                         <outlet property="dairySwitch" destination="GGH-A6-y9E" id="ebX-P6-fYs"/>
+                        <outlet property="fruitLabel" destination="BIK-Oe-qXz" id="5RH-F1-4xa"/>
                         <outlet property="fruitSlider" destination="afE-XG-ejl" id="R5d-fd-Sat"/>
                         <outlet property="fruitSwitch" destination="nhn-xg-45v" id="S4T-K4-gN4"/>
                         <outlet property="goalText" destination="qke-nP-rh3" id="NFv-60-F2Z"/>
+                        <outlet property="grainLabel" destination="XKq-Xx-0Ps" id="jfp-xL-LJ8"/>
                         <outlet property="grainSlider" destination="jNL-cy-22l" id="duF-ih-i7m"/>
                         <outlet property="grainSwitch" destination="Ia4-b1-FRL" id="BH1-El-NO0"/>
+                        <outlet property="oilLabel" destination="Plf-3P-vx2" id="Zrj-3E-tCJ"/>
                         <outlet property="oilSlider" destination="gv8-4d-qMv" id="KOS-f7-vN7"/>
                         <outlet property="oilSwitch" destination="wvb-8a-bEp" id="ZWr-fA-jxb"/>
+                        <outlet property="proteinLabel" destination="Fbd-je-45S" id="NgB-Pe-yMI"/>
                         <outlet property="proteinSlider" destination="gFf-7I-lMN" id="ed5-5Z-hMf"/>
                         <outlet property="proteinSwitch" destination="J5v-Ze-xEJ" id="ovb-lI-apJ"/>
+                        <outlet property="vegetableLabel" destination="JEF-lL-Ccb" id="15x-0E-pNr"/>
                         <outlet property="vegetableSlider" destination="wON-wT-wvJ" id="EfK-Q8-ahh"/>
                         <outlet property="vegetableSwitch" destination="oBd-d8-MzU" id="9ci-Lb-ekp"/>
                     </connections>

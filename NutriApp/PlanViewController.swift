@@ -25,6 +25,14 @@ class PlanViewController: UITableViewController {
     @IBOutlet weak var oilSwitch: UIView!
     @IBOutlet weak var oilSlider: UISlider!
     
+    @IBOutlet weak var proteinLabel: UILabel!
+    @IBOutlet weak var fruitLabel: UILabel!
+    @IBOutlet weak var vegetableLabel: UILabel!
+    @IBOutlet weak var grainLabel: UILabel!
+    @IBOutlet weak var dairyLabel: UILabel!
+    @IBOutlet weak var oilLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
