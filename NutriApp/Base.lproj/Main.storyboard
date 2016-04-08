@@ -677,7 +677,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gTu-cd-4NK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gTu-cd-4NK" customClass="PFImageView">
                                 <rect key="frame" x="23" y="87" width="115" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="115" id="kxY-R7-9dF"/>
@@ -817,7 +817,7 @@
                         <outlet property="goalLabel" destination="FMk-MG-zth" id="FTm-mx-tNX"/>
                         <outlet property="idLabel" destination="Jvy-1a-lQ1" id="O4v-rn-dkF"/>
                         <outlet property="nameLabel" destination="W3J-HI-leQ" id="kXQ-qc-Cvj"/>
-                        <outlet property="profileImageView" destination="gTu-cd-4NK" id="Tgi-FM-CRQ"/>
+                        <outlet property="profileImageView" destination="gTu-cd-4NK" id="pPf-G7-c31"/>
                         <outlet property="roleLabel" destination="noB-oH-Cq6" id="eQK-9D-nfN"/>
                         <outlet property="weightLabel" destination="SYd-uU-mrA" id="fay-JV-11Q"/>
                     </connections>

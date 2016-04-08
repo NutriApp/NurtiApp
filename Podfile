@@ -5,5 +5,7 @@ use_frameworks!
 
 target 'NutriApp' do
     pod 'Parse'
+    pod 'ParseUI'
+    pod 'MBProgressHUD'
 end
 

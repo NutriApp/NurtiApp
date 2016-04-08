@@ -9,7 +9,8 @@
 import UIKit
 import Parse
 
-class ProfileEditViewController: UIViewController {
+class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
     @IBOutlet weak var weightField: UITextField!
     @IBOutlet weak var genderField: UITextField!
     @IBOutlet weak var goalField: UITextField!
@@ -21,6 +22,9 @@ class ProfileEditViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var uploadView: UIView!
+    let uploadTap = UITapGestureRecognizer()
+    var profileImage: PFFile?
+    let user = PFUser.currentUser()
     var role: String?
     
     override func viewDidLoad() {
@@ -30,6 +34,26 @@ class ProfileEditViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //Fill in text
+        if user!["name"] != nil {
+            nameField.text = user!["name"] as? String
+        } else {
+            nameField.text = "Full Name"
+        }
+        emailField.text = user!["email"] as? String
+        ageField.text = user!["age"] as? String
+        goalField.text = user!["goal"] as? String
+        genderField.text = user!["gender"] as? String
+        weightField.text = user!["weight"] as? String
+        
+        //Tap Gesture Recognizer
+        uploadTap.addTarget(self, action: Selector("onUploadTap:"))
+        uploadView.addGestureRecognizer(uploadTap)
+        uploadView.userInteractionEnabled = true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,6 +62,52 @@ class ProfileEditViewController: UIViewController {
     
     func dismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    //Upload image tapped
+    func onUploadTap(recognizer: UITapGestureRecognizer) {
+        //Open image picker
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            //Get image from image picker
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let imageToUpload = resize(image, newSize: CGSizeMake(750, 750))
+            
+            //Show image in preview image view
+            self.profileImageView.image = imageToUpload
+            self.profileImageView.hidden = false
+            self.updateLabel.hidden = true
+            self.uploadView.alpha = 1
+            
+            //Get PFFile fom image
+            self.profileImage = userMedia.getPFFileFromImage(imageToUpload)!
+            
+            //Dismiss image picker
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+            //Remove tap gesture recognizer from upload view
+            uploadView.removeGestureRecognizer(uploadTap)
+    }
+    
+    //Resize image to fit in Parse's limits
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     @IBAction func onRoleChange(sender: AnyObject) {
@@ -63,7 +133,7 @@ class ProfileEditViewController: UIViewController {
         info["goal"] = goalField.text
         info["role"] = role
         
-        User.saveUserProfile(info)
+        User.saveUserProfile(info, image: profileImage)
         
     }
 

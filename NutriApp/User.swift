@@ -22,7 +22,7 @@ class User: NSObject {
         }
     }
     
-    class func saveUserProfile (info: [String: String]?) {
+    class func saveUserProfile (info: [String: String]?, image: PFFile?) {
         let user = PFUser.currentUser()!
         if info!["name"] != nil {
             user["name"] = info!["name"]
@@ -44,6 +44,9 @@ class User: NSObject {
         }
         if info!["role"] != nil {
             user["role"] = info!["role"]
+        }
+        if image != nil {
+            user["profilePicture"] = image
         }
         
         user.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in

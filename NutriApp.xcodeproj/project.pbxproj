@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4314C91A53FA7B80BEC9145D /* Pods_NutriApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5528C040D3AAFF20DD48F1 /* Pods_NutriApp.framework */; };
 		885F6A721CB4AE98009D6E14 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885F6A711CB4AE98009D6E14 /* User.swift */; };
+		8866B4961CB73DEC00A1376A /* userMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8866B4951CB73DEC00A1376A /* userMedia.swift */; };
 		88C667B01CB1C7B0005A53AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */; };
 		88C667B21CB1D134005A53AB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667B11CB1D134005A53AB /* StartViewController.swift */; };
 		88EDB6BE1CB723C300338B2D /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EDB6BD1CB723C300338B2D /* ProfileEditViewController.swift */; };
@@ -32,6 +33,7 @@
 		4838F0E4F5335885F1E850C7 /* Pods-NutriApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NutriApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NutriApp/Pods-NutriApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5F7D1BF66BAAA4414B5D7EA2 /* Pods-NutriApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NutriApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NutriApp/Pods-NutriApp.release.xcconfig"; sourceTree = "<group>"; };
 		885F6A711CB4AE98009D6E14 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8866B4951CB73DEC00A1376A /* userMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userMedia.swift; sourceTree = "<group>"; };
 		88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C667B11CB1D134005A53AB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		88EDB6BD1CB723C300338B2D /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				885F6A711CB4AE98009D6E14 /* User.swift */,
+				8866B4951CB73DEC00A1376A /* userMedia.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				BC60F25B1CADA11100642522 /* ContainerViewController.swift in Sources */,
 				885F6A721CB4AE98009D6E14 /* User.swift in Sources */,
 				BC60F2671CADCE4C00642522 /* ProfileViewController.swift in Sources */,
+				8866B4961CB73DEC00A1376A /* userMedia.swift in Sources */,
 				BC60F2611CADCE3000642522 /* ManageSupporterViewController.swift in Sources */,
 				88C667B21CB1D134005A53AB /* StartViewController.swift in Sources */,
 				BC04E6231C76C46A0092CC46 /* AppDelegate.swift in Sources */,

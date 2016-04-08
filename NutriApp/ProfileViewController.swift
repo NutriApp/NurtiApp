@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class ProfileViewController: UIViewController {
 
@@ -19,7 +20,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: PFImageView!
+
+
     var user = PFUser.currentUser()
     
     override func viewDidLoad() {
@@ -49,6 +52,10 @@ class ProfileViewController: UIViewController {
         }
         if let goal = user!["goal"] as? String {
             goalLabel.text = goal
+        }
+        if let imageFile = user!["profilePicture"] as? PFFile {
+            profileImageView.file = imageFile
+            profileImageView.loadInBackground()
         }
         
     }
