@@ -77,6 +77,11 @@ Parse Server Data Schema:
 
 <img src = 'http://i.imgur.com/VPv52xT.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
 
+66% Mark
+
+<img src = 'http://i.imgur.com/JdD8eqt.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src = 'http://i.imgur.com/wohSPXL.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Consideration:
 
