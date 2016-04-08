@@ -20,7 +20,7 @@ class StartViewController: UIViewController {
     //REMEMBER USER ACROSS APP RESTARTS
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        PFUser.logOut()
+        //PFUser.logOut()
         //If user is already signed in
         if PFUser.currentUser() != nil {
             //segue to home screen

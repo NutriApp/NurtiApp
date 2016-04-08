@@ -25,5 +25,18 @@ class UserPlan: NSObject {
         // Save object (following function will save the object in Parse asynchronously)
         plan.saveInBackgroundWithBlock(completion)
     }
+    
+    class func queryUserPlan(objectID: String, completion: PFBooleanResultBlock){
+        var query = PFQuery(className:"Plan")
+        query.getObjectInBackgroundWithId(objectID) {
+            (plan: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print(plan)
+            }
+        }
+
+    }
 
 }
