@@ -24,6 +24,7 @@
 		BC60F2631CADCE3900642522 /* SupportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC60F2621CADCE3900642522 /* SupportingViewController.swift */; };
 		BC60F2651CADCE4300642522 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC60F2641CADCE4300642522 /* CalendarViewController.swift */; };
 		BC60F2671CADCE4C00642522 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC60F2661CADCE4C00642522 /* ProfileViewController.swift */; };
+		BCACC2391CB73EA700DD7648 /* UserPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCACC2381CB73EA700DD7648 /* UserPlan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		BC60F2621CADCE3900642522 /* SupportingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportingViewController.swift; sourceTree = "<group>"; };
 		BC60F2641CADCE4300642522 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BC60F2661CADCE4C00642522 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BCACC2381CB73EA700DD7648 /* UserPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPlan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				BC04E62B1C76C46A0092CC46 /* LaunchScreen.storyboard */,
 				BC04E62E1C76C46A0092CC46 /* Info.plist */,
 				BC60F25C1CADA7ED00642522 /* MainNavigationController.swift */,
+				BCACC2381CB73EA700DD7648 /* UserPlan.swift */,
 			);
 			path = NutriApp;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				88C667B01CB1C7B0005A53AB /* LoginViewController.swift in Sources */,
 				BC60F25D1CADA7ED00642522 /* MainNavigationController.swift in Sources */,
 				BC60F2631CADCE3900642522 /* SupportingViewController.swift in Sources */,
+				BCACC2391CB73EA700DD7648 /* UserPlan.swift in Sources */,
 				BC60F2651CADCE4300642522 /* CalendarViewController.swift in Sources */,
 				BC60F25F1CADCE2000642522 /* ManageProgressViewController.swift in Sources */,
 				BC60F25B1CADA11100642522 /* ContainerViewController.swift in Sources */,
