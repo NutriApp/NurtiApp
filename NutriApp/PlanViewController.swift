@@ -31,8 +31,12 @@ class PlanViewController: UITableViewController {
     @IBOutlet weak var grainLabel: UILabel!
     @IBOutlet weak var dairyLabel: UILabel!
     @IBOutlet weak var oilLabel: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     var plan: NSDictionary!
+    let user = PFUser.currentUser()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +46,12 @@ class PlanViewController: UITableViewController {
         
         plan = PFUser.currentUser()!["plan"] as! NSDictionary
         
-        print(plan["dairy"])
-        print(plan["fruits"]![1])
+        saveButton.hidden = true
+        cancelButton.hidden = true
         
         displayPlan()
-
-        // Do any additional setup after loading the view.
     }
+    
     //let log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
     func displayPlan(){
         var value = plan["protein"]![0] as! Float
@@ -93,6 +96,8 @@ class PlanViewController: UITableViewController {
         unit = plan["oil"]![1] as! String
         oilLabel.text = "Oil: \(value) \(unit)"
         
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,14 +113,91 @@ class PlanViewController: UITableViewController {
         view.endEditing(true)
     }
     
+    //let log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
     @IBAction func onSave(sender: UIButton) {
+        saveButton.hidden = true
+        cancelButton.hidden = true
         
+//        var newPlan: NSDictionary = ["Data": ]
+        
+        
+        let valueP = proteinSlider.value
+        let stateP = proteinSwitch.on
+        let unitP = plan["protein"]![1] as! String
+        
+        let valueF = fruitSlider.value
+        let stateF = fruitSwitch.on
+        let unitF = plan["fruits"]![1] as! String
+        
+        let valueV = vegetableSlider.value
+        let stateV = vegetableSwitch.on
+        let unitV = plan["vegetable"]![1] as! String
+        
+        let valueG = grainSlider.value
+        let stateG = grainSwitch.on
+        let unitG = plan["grain"]![1] as! String
+        
+        let valueD = dairySlider.value
+        let stateD = dairySwitch.on
+        let unitD = plan["dairy"]![1] as! String
+        
+        let valueO = oilSlider.value
+        let stateO = oilSwitch.on
+        let unitO = plan["oil"]![1] as! String
+        
+        
+        var newPlan: NSArray = [
+            ["protein": [valueP, unitP, stateP]],
+            ["fruits": [valueF, unitF, stateF]],
+            ["vegetable": [valueV, unitV, stateV]],
+            ["grain": [valueG, unitG, stateG]],
+            ["dairy": [valueD, unitD, stateD]],
+            ["oil": [valueO, unitO, stateO]],
+        ]
+        
+        var myDict:NSDictionary = ["plan" : newPlan]
+        
+        //user.saveUserProfile(plan)
+
+
     }
     
     @IBAction func onCancel(sender: UIButton) {
         displayPlan()
+        saveButton.hidden = true
+        cancelButton.hidden = true
     }
     
+    @IBAction func onValueChanged(sender: UISlider) {
+        
+        saveButton.hidden = false
+        cancelButton.hidden = false
+        
+        //Need to make slide snap
+        var value = proteinSlider.value
+        var unit = plan["protein"]![1] as! String
+        proteinLabel.text = "Protein: \(value) \(unit)"
+        
+        value = fruitSlider.value
+        unit = plan["fruits"]![1] as! String
+        fruitLabel.text = "Fruit: \(value) \(unit)"
+        
+        value = vegetableSlider.value
+        unit = plan["vegetable"]![1] as! String
+        vegetableLabel.text = "Vegetable: \(value) \(unit)"
+        
+        value = grainSlider.value
+        unit = plan["grain"]![1] as! String
+        grainLabel.text = "Grain: \(value) \(unit)"
+        
+        value = dairySlider.value
+        unit = plan["dairy"]![1] as! String
+        dairyLabel.text = "Dairy: \(value) \(unit)"
+        
+        value = oilSlider.value
+        unit = plan["oil"]![1] as! String
+        oilLabel.text = "Oil: \(value) \(unit)"
+    }
     //TBD: Need to add database component and local save for the plan settings
 
     /*
