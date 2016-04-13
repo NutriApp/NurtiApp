@@ -81,6 +81,7 @@
 		885F6A701CB4AE77009D6E14 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BCACC2381CB73EA700DD7648 /* UserPlan.swift */,
 				885F6A711CB4AE98009D6E14 /* User.swift */,
 				8866B4951CB73DEC00A1376A /* userMedia.swift */,
 			);
@@ -125,7 +126,6 @@
 				BC04E62B1C76C46A0092CC46 /* LaunchScreen.storyboard */,
 				BC04E62E1C76C46A0092CC46 /* Info.plist */,
 				BC60F25C1CADA7ED00642522 /* MainNavigationController.swift */,
-				BCACC2381CB73EA700DD7648 /* UserPlan.swift */,
 			);
 			path = NutriApp;
 			sourceTree = "<group>";
