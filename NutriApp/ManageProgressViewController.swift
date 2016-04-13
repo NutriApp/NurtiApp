@@ -19,13 +19,13 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initialViews()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        initialViews()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +35,6 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     
     func initialViews() {
         //Visual layout
-        foodImageView.image = nil
         foodImageView.hidden = true
         uploadView.alpha = 0.8
         uploadLabel.hidden = false
