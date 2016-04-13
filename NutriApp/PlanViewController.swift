@@ -48,6 +48,7 @@ class PlanViewController: UITableViewController {
         plan = PFUser.currentUser()!["plan"] as! NSDictionary
         oldPlan = plan
 
+
         saveButton.hidden = true
         cancelButton.hidden = true
         
@@ -56,7 +57,7 @@ class PlanViewController: UITableViewController {
     
     //let log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
     func displayPlan(){
-        print(plan)
+//        print(plan)
         var value = plan["protein"]![0] as! Float
         proteinSlider.value = value
         var state = plan["protein"]![2] as! Bool

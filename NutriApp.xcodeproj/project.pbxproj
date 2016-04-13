@@ -13,6 +13,7 @@
 		88C667B01CB1C7B0005A53AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */; };
 		88C667B21CB1D134005A53AB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C667B11CB1D134005A53AB /* StartViewController.swift */; };
 		88EDB6BE1CB723C300338B2D /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EDB6BD1CB723C300338B2D /* ProfileEditViewController.swift */; };
+		BC0019601CBEE8F600F1564A /* ManageProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC00195F1CBEE8F600F1564A /* ManageProgressCell.swift */; };
 		BC04E6231C76C46A0092CC46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04E6221C76C46A0092CC46 /* AppDelegate.swift */; };
 		BC04E6281C76C46A0092CC46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC04E6261C76C46A0092CC46 /* Main.storyboard */; };
 		BC04E62A1C76C46A0092CC46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC04E6291C76C46A0092CC46 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		88C667AF1CB1C7B0005A53AB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C667B11CB1D134005A53AB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		88EDB6BD1CB723C300338B2D /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		BC00195F1CBEE8F600F1564A /* ManageProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageProgressCell.swift; sourceTree = "<group>"; };
 		BC04E61F1C76C46A0092CC46 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC04E6221C76C46A0092CC46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC04E6271C76C46A0092CC46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BC0019611CBEEB4D00F1564A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC00195F1CBEE8F600F1564A /* ManageProgressCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		BC04E6161C76C4690092CC46 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		BC04E6211C76C46A0092CC46 /* NutriApp */ = {
 			isa = PBXGroup;
 			children = (
+				BC0019611CBEEB4D00F1564A /* Views */,
 				885F6A701CB4AE77009D6E14 /* Models */,
 				BC60F2681CADE02D00642522 /* ViewControllers */,
 				BC04E6221C76C46A0092CC46 /* AppDelegate.swift */,
@@ -280,6 +291,7 @@
 				BC60F25F1CADCE2000642522 /* ManageProgressViewController.swift in Sources */,
 				BC60F25B1CADA11100642522 /* ContainerViewController.swift in Sources */,
 				885F6A721CB4AE98009D6E14 /* User.swift in Sources */,
+				BC0019601CBEE8F600F1564A /* ManageProgressCell.swift in Sources */,
 				BC60F2671CADCE4C00642522 /* ProfileViewController.swift in Sources */,
 				8866B4961CB73DEC00A1376A /* userMedia.swift in Sources */,
 				BC60F2611CADCE3000642522 /* ManageSupporterViewController.swift in Sources */,
