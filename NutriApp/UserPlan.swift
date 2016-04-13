@@ -11,32 +11,33 @@ import Parse
 
 class UserPlan: NSObject {
     
-    class func saveUserPlan(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
-        // Create Parse object PFObject
-        let plan = PFObject(className: "UserPlan")
-        
-        var log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
-        
-        // Add relevant fields to the object
-        plan["author"] = PFUser.currentUser() // Pointer column type that points to PFUser
-        
 
-        
-        // Save object (following function will save the object in Parse asynchronously)
-        plan.saveInBackgroundWithBlock(completion)
-    }
     
-    class func queryUserPlan(objectID: String, completion: PFBooleanResultBlock){
-        var query = PFQuery(className:"Plan")
-        query.getObjectInBackgroundWithId(objectID) {
-            (plan: PFObject?, error: NSError?) -> Void in
-            if error != nil {
-                print(error)
+    class func saveUserPlan (plan: AnyObject?) {
+        let user = PFUser.currentUser()!
+        user["plan"] = plan
+        
+        user.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("successfully updated plan")
             } else {
-                print(plan)
+                print("did not update plan")
             }
         }
-
+        
     }
+    
+//    class func queryUserPlan(objectID: String, completion: PFBooleanResultBlock){
+//        var query = PFQuery(className:"Plan")
+//        query.getObjectInBackgroundWithId(objectID) {
+//            (plan: PFObject?, error: NSError?) -> Void in
+//            if error != nil {
+//                print(error)
+//            } else {
+//                print(plan)
+//            }
+//        }
+//
+//    }
 
 }

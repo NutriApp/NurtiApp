@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -425,6 +424,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5v-Ze-xEJ">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="1jg-Os-dCJ"/>
+                                                    </connections>
                                                 </switch>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-7I-lMN">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
@@ -459,6 +461,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhn-xg-45v">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="iOj-DN-t5b"/>
+                                                    </connections>
                                                 </switch>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="afE-XG-ejl">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
@@ -487,6 +492,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oBd-d8-MzU">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="hFV-Ho-HPD"/>
+                                                    </connections>
                                                 </switch>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="wON-wT-wvJ">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
@@ -533,6 +541,9 @@
                                                 </slider>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ia4-b1-FRL">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="huf-Rc-ebG"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -561,6 +572,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GGH-A6-y9E">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="Re0-0Q-BHi"/>
+                                                    </connections>
                                                 </switch>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="I6d-2A-G4F">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
@@ -601,6 +615,9 @@
                                                 </slider>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PKi-YD-i5m">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="57b-wY-XUF"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>

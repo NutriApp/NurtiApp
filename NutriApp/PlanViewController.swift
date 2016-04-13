@@ -35,6 +35,7 @@ class PlanViewController: UITableViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     var plan: NSDictionary!
+    var oldPlan: NSDictionary!
     let user = PFUser.currentUser()
 
     
@@ -45,7 +46,8 @@ class PlanViewController: UITableViewController {
         view.addGestureRecognizer(tap)
         
         plan = PFUser.currentUser()!["plan"] as! NSDictionary
-        
+        oldPlan = plan
+
         saveButton.hidden = true
         cancelButton.hidden = true
         
@@ -54,6 +56,7 @@ class PlanViewController: UITableViewController {
     
     //let log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
     func displayPlan(){
+        print(plan)
         var value = plan["protein"]![0] as! Float
         proteinSlider.value = value
         var state = plan["protein"]![2] as! Bool
@@ -95,9 +98,6 @@ class PlanViewController: UITableViewController {
         oilSwitch.setOn(state, animated: false)
         unit = plan["oil"]![1] as! String
         oilLabel.text = "Oil: \(value) \(unit)"
-        
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,9 +117,6 @@ class PlanViewController: UITableViewController {
     @IBAction func onSave(sender: UIButton) {
         saveButton.hidden = true
         cancelButton.hidden = true
-        
-//        var newPlan: NSDictionary = ["Data": ]
-        
         
         let valueP = proteinSlider.value
         let stateP = proteinSwitch.on
@@ -146,29 +143,34 @@ class PlanViewController: UITableViewController {
         let unitO = plan["oil"]![1] as! String
         
         
-        var newPlan: NSArray = [
-            ["protein": [valueP, unitP, stateP]],
-            ["fruits": [valueF, unitF, stateF]],
-            ["vegetable": [valueV, unitV, stateV]],
-            ["grain": [valueG, unitG, stateG]],
-            ["dairy": [valueD, unitD, stateD]],
-            ["oil": [valueO, unitO, stateO]],
+        let newPlan = [
+            "protein": [valueP, unitP, stateP],
+            "fruits": [valueF, unitF, stateF],
+            "vegetable": [valueV, unitV, stateV],
+            "grain": [valueG, unitG, stateG],
+            "dairy": [valueD, unitD, stateD],
+            "oil": [valueO, unitO, stateO],
         ]
         
-        var myDict:NSDictionary = ["plan" : newPlan]
+        //var myDict: NSDictionary = ["plan" : newPlan]
         
-        //user.saveUserProfile(plan)
-
+        UserPlan.saveUserPlan(newPlan)
+        plan = PFUser.currentUser()!["plan"] as! NSDictionary
+        
+        oldPlan = plan
+        saveButton.hidden = true
+        cancelButton.hidden = true
 
     }
     
     @IBAction func onCancel(sender: UIButton) {
+        plan = oldPlan
         displayPlan()
         saveButton.hidden = true
         cancelButton.hidden = true
     }
     
-    @IBAction func onValueChanged(sender: UISlider) {
+    @IBAction func onValueChanged(sender: AnyObject?) {
         
         saveButton.hidden = false
         cancelButton.hidden = false
