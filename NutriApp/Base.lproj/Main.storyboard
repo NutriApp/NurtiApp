@@ -387,45 +387,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UcP-8y-0tG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UcP-8y-0tG">
                                 <rect key="frame" x="0.0" y="250" width="320" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ManageProgressCell" rowHeight="135" id="VyR-rB-tSY" customClass="ManageProgressCell" customModule="NutriApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="135"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ManageProgressCell" rowHeight="155" id="VyR-rB-tSY" customClass="ManageProgressCell" customModule="NutriApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VyR-rB-tSY" id="t6i-aV-O0E">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="134.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="154.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="eeu-8b-37c">
-                                                    <rect key="frame" x="6" y="66" width="308" height="31"/>
-                                                </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdR-3L-4xA">
-                                                    <rect key="frame" x="8" y="8" width="38.5" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Plan choice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiv-aa-Xv2">
                                                     <rect key="frame" x="8" y="37" width="88" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdR-3L-4xA">
+                                                    <rect key="frame" x="8" y="8" width="38.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zck-4d-HTs">
+                                                    <rect key="frame" x="8" y="65" width="44" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="eeu-8b-37c">
+                                                    <rect key="frame" x="6" y="93" width="308" height="31"/>
+                                                    <connections>
+                                                        <action selector="onSliderChange:" destination="VyR-rB-tSY" eventType="valueChanged" id="gFk-pT-T6W"/>
+                                                        <action selector="onSliderChange:" destination="bvo-qZ-sft" eventType="valueChanged" id="qGw-Mc-4ZD"/>
+                                                    </connections>
+                                                </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wiv-aa-Xv2" firstAttribute="leading" secondItem="t6i-aV-O0E" secondAttribute="leading" constant="8" id="7Ec-JZ-dry"/>
-                                                <constraint firstItem="eeu-8b-37c" firstAttribute="top" secondItem="wiv-aa-Xv2" secondAttribute="bottom" constant="8" id="IZA-fu-XF5"/>
+                                                <constraint firstItem="Zck-4d-HTs" firstAttribute="leading" secondItem="t6i-aV-O0E" secondAttribute="leading" constant="8" id="Cgv-MR-Ffr"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eeu-8b-37c" secondAttribute="bottom" constant="8" id="K0x-lw-hrW"/>
                                                 <constraint firstItem="AdR-3L-4xA" firstAttribute="leading" secondItem="t6i-aV-O0E" secondAttribute="leading" constant="8" id="KQJ-el-voP"/>
+                                                <constraint firstItem="Zck-4d-HTs" firstAttribute="top" secondItem="wiv-aa-Xv2" secondAttribute="bottom" constant="8" id="UtV-zi-e0H"/>
                                                 <constraint firstItem="eeu-8b-37c" firstAttribute="leading" secondItem="t6i-aV-O0E" secondAttribute="leading" constant="8" id="VA8-wu-ZZt"/>
                                                 <constraint firstItem="wiv-aa-Xv2" firstAttribute="top" secondItem="AdR-3L-4xA" secondAttribute="bottom" constant="8" id="ZyC-j7-sya"/>
                                                 <constraint firstAttribute="trailing" secondItem="eeu-8b-37c" secondAttribute="trailing" constant="8" id="mbU-Wx-IAw"/>
                                                 <constraint firstItem="AdR-3L-4xA" firstAttribute="top" secondItem="t6i-aV-O0E" secondAttribute="top" constant="8" id="nyk-bu-JDq"/>
+                                                <constraint firstItem="eeu-8b-37c" firstAttribute="top" secondItem="Zck-4d-HTs" secondAttribute="bottom" constant="8" id="wNK-66-BP0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="planInput" destination="Zck-4d-HTs" id="HQl-9n-gbw"/>
                                             <outlet property="planLabel" destination="wiv-aa-Xv2" id="VZ4-go-6VE"/>
                                             <outlet property="planSlider" destination="eeu-8b-37c" id="4HE-jY-OKP"/>
                                             <outlet property="planTitle" destination="AdR-3L-4xA" id="3cK-zu-1Di"/>
