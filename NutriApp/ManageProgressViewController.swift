@@ -24,7 +24,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        //super.viewWillAppear(animated)
         
     }
 
