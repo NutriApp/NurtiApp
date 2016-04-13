@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qiE-qF-Mve">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qiE-qF-Mve">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -437,9 +438,15 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5v-Ze-xEJ">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="1jg-Os-dCJ"/>
+                                                    </connections>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-7I-lMN">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-7I-lMN">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="Kr4-xV-O9L"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -468,9 +475,15 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhn-xg-45v">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="iOj-DN-t5b"/>
+                                                    </connections>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="afE-XG-ejl">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="afE-XG-ejl">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="pfT-Mg-4vk"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -491,18 +504,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oBd-d8-MzU">
+                                                    <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="hFV-Ho-HPD"/>
+                                                    </connections>
+                                                </switch>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="wON-wT-wvJ">
+                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="Thy-Pu-qp9"/>
+                                                    </connections>
+                                                </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegetable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEF-lL-Ccb">
                                                     <rect key="frame" x="15" y="8" width="77" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oBd-d8-MzU">
-                                                    <rect key="frame" x="256" y="3" width="51" height="31"/>
-                                                </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wON-wT-wvJ">
-                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
-                                                </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wON-wT-wvJ" firstAttribute="top" secondItem="oBd-d8-MzU" secondAttribute="bottom" constant="3" id="3vq-Wv-xr3"/>
@@ -528,12 +547,18 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="jNL-cy-22l">
+                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="9Ih-3f-bd9"/>
+                                                    </connections>
+                                                </slider>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ia4-b1-FRL">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="huf-Rc-ebG"/>
+                                                    </connections>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jNL-cy-22l">
-                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
-                                                </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Ia4-b1-FRL" secondAttribute="trailing" constant="15" id="33J-9J-gQy"/>
@@ -561,9 +586,15 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GGH-A6-y9E">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="Re0-0Q-BHi"/>
+                                                    </connections>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="I6d-2A-G4F">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="I6d-2A-G4F">
                                                     <rect key="frame" x="13" y="37" width="294" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="4gK-eA-TCv"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -590,12 +621,18 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="gv8-4d-qMv">
+                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="6xo-HG-Jn4"/>
+                                                    </connections>
+                                                </slider>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PKi-YD-i5m">
                                                     <rect key="frame" x="256" y="3" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onValueChanged:" destination="Ope-F7-795" eventType="valueChanged" id="57b-wY-XUF"/>
+                                                    </connections>
                                                 </switch>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gv8-4d-qMv">
-                                                    <rect key="frame" x="13" y="37" width="294" height="31"/>
-                                                </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="gv8-4d-qMv" secondAttribute="trailing" constant="15" id="06p-xt-Log"/>
@@ -608,6 +645,44 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="114" id="ECG-6S-Dsa">
+                                        <rect key="frame" x="0.0" y="598" width="320" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ECG-6S-Dsa" id="yfl-3a-f7Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mB4-ba-00P">
+                                                    <rect key="frame" x="95" y="64" width="130" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="10A-oU-E3j"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Vdd-k1-w34"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Cancel"/>
+                                                    <connections>
+                                                        <action selector="onCancel:" destination="Ope-F7-795" eventType="touchUpInside" id="PjR-eZ-sU2"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Tg-Jv-hfv">
+                                                    <rect key="frame" x="95" y="16" width="130" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="9Af-Zc-6jY"/>
+                                                        <constraint firstAttribute="width" constant="130" id="Bzu-XS-iEQ"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Save"/>
+                                                    <connections>
+                                                        <action selector="onSave:" destination="Ope-F7-795" eventType="touchUpInside" id="fim-36-lfa"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6Tg-Jv-hfv" firstAttribute="top" secondItem="yfl-3a-f7Z" secondAttribute="topMargin" constant="8" id="JdP-Zf-YGB"/>
+                                                <constraint firstItem="mB4-ba-00P" firstAttribute="top" secondItem="6Tg-Jv-hfv" secondAttribute="bottom" constant="8" id="uAk-Wo-xrp"/>
+                                                <constraint firstItem="mB4-ba-00P" firstAttribute="centerX" secondItem="yfl-3a-f7Z" secondAttribute="centerX" id="xkz-7L-gl2"/>
+                                                <constraint firstItem="6Tg-Jv-hfv" firstAttribute="centerX" secondItem="yfl-3a-f7Z" secondAttribute="centerX" id="zCK-MC-P1x"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -617,6 +692,29 @@
                             <outletCollection property="gestureRecognizers" destination="VWh-IH-TGQ" appends="YES" id="grS-7h-VZi"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="cancelButton" destination="mB4-ba-00P" id="4dl-dQ-65e"/>
+                        <outlet property="dairyLabel" destination="hb4-el-yAB" id="4uJ-Qf-2Y5"/>
+                        <outlet property="dairySlider" destination="I6d-2A-G4F" id="EtL-ls-Qbk"/>
+                        <outlet property="dairySwitch" destination="GGH-A6-y9E" id="ebX-P6-fYs"/>
+                        <outlet property="fruitLabel" destination="BIK-Oe-qXz" id="5RH-F1-4xa"/>
+                        <outlet property="fruitSlider" destination="afE-XG-ejl" id="R5d-fd-Sat"/>
+                        <outlet property="fruitSwitch" destination="nhn-xg-45v" id="S4T-K4-gN4"/>
+                        <outlet property="goalText" destination="qke-nP-rh3" id="NFv-60-F2Z"/>
+                        <outlet property="grainLabel" destination="XKq-Xx-0Ps" id="jfp-xL-LJ8"/>
+                        <outlet property="grainSlider" destination="jNL-cy-22l" id="duF-ih-i7m"/>
+                        <outlet property="grainSwitch" destination="Ia4-b1-FRL" id="BH1-El-NO0"/>
+                        <outlet property="oilLabel" destination="Plf-3P-vx2" id="Zrj-3E-tCJ"/>
+                        <outlet property="oilSlider" destination="gv8-4d-qMv" id="KOS-f7-vN7"/>
+                        <outlet property="oilSwitch" destination="PKi-YD-i5m" id="CHK-kl-9MJ"/>
+                        <outlet property="proteinLabel" destination="Fbd-je-45S" id="NgB-Pe-yMI"/>
+                        <outlet property="proteinSlider" destination="gFf-7I-lMN" id="ed5-5Z-hMf"/>
+                        <outlet property="proteinSwitch" destination="J5v-Ze-xEJ" id="ovb-lI-apJ"/>
+                        <outlet property="saveButton" destination="6Tg-Jv-hfv" id="hpN-tn-ccn"/>
+                        <outlet property="vegetableLabel" destination="JEF-lL-Ccb" id="15x-0E-pNr"/>
+                        <outlet property="vegetableSlider" destination="wON-wT-wvJ" id="EfK-Q8-ahh"/>
+                        <outlet property="vegetableSwitch" destination="oBd-d8-MzU" id="9ci-Lb-ekp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k36-Qc-ldn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VWh-IH-TGQ">

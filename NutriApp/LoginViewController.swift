@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -67,10 +67,13 @@ class LoginViewController: UIViewController {
         //Get user name and password from text fields
         newUser.username = userNameField.text
         newUser.password = passwordField.text
+        let log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
+        newUser["plan"] = log
         
         newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("user created")
+                
                 //Segue to home screen
                 self.performSegueWithIdentifier("toMain", sender: nil)
                 
