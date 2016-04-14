@@ -7,5 +7,6 @@ target 'NutriApp' do
     pod 'Parse'
     pod 'ParseUI'
     pod 'MBProgressHUD'
+    pod 'IQKeyboardManagerSwift', '4.0.0'
 end
 
