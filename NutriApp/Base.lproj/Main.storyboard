@@ -465,7 +465,11 @@
                                 <action selector="onCancel:" destination="bvo-qZ-sft" id="RTb-f0-Pnp"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="ex7-Ph-4CB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="ex7-Ph-4CB">
+                            <connections>
+                                <action selector="onPost:" destination="bvo-qZ-sft" id="5XZ-XO-k9i"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="commentsField" destination="Xpk-qC-I8m" id="Mzf-vi-B0O"/>

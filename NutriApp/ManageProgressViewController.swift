@@ -22,6 +22,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     //@IBOutlet weak var slider: UISlider!
     
     var plan: NSDictionary!
+    var input: [Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,6 +208,16 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
 
     }
 
+    @IBAction func onPost(sender: UIBarButtonItem) {
+        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: <#T##AnyObject?#>) { (success: Bool, error: NSError?) -> Void in
+            if success {
+                
+            } else {
+                print(error)
+            }
+        }
+        
+    }
 
 
     /*
