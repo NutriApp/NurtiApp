@@ -20,6 +20,7 @@ class UserPlan: NSObject {
         user.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("successfully updated plan")
+                NSNotificationCenter.defaultCenter().postNotificationName("endPlanSave", object: nil)
             } else {
                 print("did not update plan")
             }

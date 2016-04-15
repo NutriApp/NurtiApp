@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class PlanViewController: UITableViewController {
 
@@ -53,6 +54,8 @@ class PlanViewController: UITableViewController {
         cancelButton.hidden = true
         
         displayPlan()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("doneSaving:"), name: "endPlanSave", object: nil)
     }
     
     //let log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
@@ -156,17 +159,23 @@ class PlanViewController: UITableViewController {
         //var myDict: NSDictionary = ["plan" : newPlan]
         
         UserPlan.saveUserPlan(newPlan)
-        plan = PFUser.currentUser()!["plan"] as! NSDictionary
-        
-        oldPlan = plan
-        saveButton.hidden = true
-        cancelButton.hidden = true
-
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hud.labelText = "Saving Plan"
     }
     
     @IBAction func onCancel(sender: UIButton) {
         plan = oldPlan
         displayPlan()
+        saveButton.hidden = true
+        cancelButton.hidden = true
+    }
+    
+    func doneSaving(notifiction: NSNotification) {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        
+        plan = PFUser.currentUser()!["plan"] as! NSDictionary
+        
+        oldPlan = plan
         saveButton.hidden = true
         cancelButton.hidden = true
     }
