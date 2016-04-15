@@ -170,7 +170,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         }
         //cell.planSlider.value = value
 
-        print(indexPath)
+        //print(indexPath)
         return cell
     }
     
