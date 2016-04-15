@@ -357,8 +357,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sqz-CB-OYo">
-                                <rect key="frame" x="20" y="28" width="280" height="176"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqz-CB-OYo">
+                                <rect key="frame" x="20" y="72" width="280" height="176"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Picture of What You Ate!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UH-7y-ah2">
                                         <rect key="frame" x="17" y="60" width="246" height="20.5"/>
@@ -382,13 +382,13 @@
                                     <constraint firstItem="6UH-7y-ah2" firstAttribute="top" secondItem="Sqz-CB-OYo" secondAttribute="top" constant="60" id="sQV-mI-aWA"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comments" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-qC-I8m">
-                                <rect key="frame" x="20" y="212" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comments" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-qC-I8m">
+                                <rect key="frame" x="20" y="256" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UcP-8y-0tG">
-                                <rect key="frame" x="0.0" y="250" width="320" height="318"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UcP-8y-0tG">
+                                <rect key="frame" x="0.0" y="294" width="320" height="274"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ManageProgressCell" rowHeight="155" id="VyR-rB-tSY" customClass="ManageProgressCell" customModule="NutriApp" customModuleProvider="target">
@@ -418,6 +418,9 @@
                                                 </label>
                                                 <slider opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="eeu-8b-37c">
                                                     <rect key="frame" x="6" y="93" width="308" height="31"/>
+                                                    <connections>
+                                                        <action selector="onSliderChange:" destination="VyR-rB-tSY" eventType="valueChanged" id="LlY-Hi-562"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -436,7 +439,7 @@
                                         <connections>
                                             <outlet property="planInput" destination="Zck-4d-HTs" id="HQl-9n-gbw"/>
                                             <outlet property="planLabel" destination="wiv-aa-Xv2" id="VZ4-go-6VE"/>
-                                            <outlet property="planSlider" destination="eeu-8b-37c" id="UwS-6I-lWc"/>
+                                            <outlet property="planSlider" destination="eeu-8b-37c" id="qwY-x3-KSt"/>
                                             <outlet property="planTitle" destination="AdR-3L-4xA" id="3cK-zu-1Di"/>
                                         </connections>
                                     </tableViewCell>

@@ -19,6 +19,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentsField: UITextField!
+    //@IBOutlet weak var slider: UISlider!
     
     var plan: NSDictionary!
     
@@ -106,6 +107,8 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: indexPath) as! ManageProgressCell
         
         let item = indexPath.item
+//        slider.tag = indexPath.item
+        cell.planSlider.tag = item
         
         var value = plan["protein"]![0] as! Float
         var state = plan["protein"]![2] as! Bool
@@ -161,12 +164,16 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
             cell.planTitle.alpha = 1
             cell.planSlider.enabled = true
             cell.planSlider.alpha = 1
+//            slider.enabled = true
+//            slider.alpha = 1
             cell.planLabel.alpha = 1
             cell.planInput.alpha = 1
         } else {
             cell.planTitle.alpha = 0.1
             cell.planSlider.enabled = false
             cell.planSlider.alpha = 0.1
+//            slider.enabled = false
+//            slider.alpha = 0.1
             cell.planLabel.alpha = 0.1
             cell.planInput.alpha = 0.1
 
@@ -191,14 +198,14 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         view.endEditing(true)
     }
 
-//    @IBAction func sliderChanged(sender: UISlider) {
-//        
-//        let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: NSIndexPath(forRow: slider.tag, inSection: 0)) as! ManageProgressCell
-//        
-//        cell.planInput.text = "Input: \(cell.planSlider.value) \(cell.unit)"
-//
-//
-//    }
+    @IBAction func sliderChanged(sender: UISlider) {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: NSIndexPath(forRow: sender.tag, inSection: 0)) as! ManageProgressCell
+        
+        cell.planInput.text = "Input: \(cell.planSlider.value) \(cell.unit)"
+
+
+    }
 
 
 
