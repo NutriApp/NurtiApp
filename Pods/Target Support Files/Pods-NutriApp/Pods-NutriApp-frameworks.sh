@@ -85,12 +85,14 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-NutriApp/Bolts.framework"
+  install_framework "Pods-NutriApp/IQKeyboardManagerSwift.framework"
   install_framework "Pods-NutriApp/MBProgressHUD.framework"
   install_framework "Pods-NutriApp/Parse.framework"
   install_framework "Pods-NutriApp/ParseUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-NutriApp/Bolts.framework"
+  install_framework "Pods-NutriApp/IQKeyboardManagerSwift.framework"
   install_framework "Pods-NutriApp/MBProgressHUD.framework"
   install_framework "Pods-NutriApp/Parse.framework"
   install_framework "Pods-NutriApp/ParseUI.framework"
