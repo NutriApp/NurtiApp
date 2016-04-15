@@ -170,7 +170,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         }
         //cell.planSlider.value = value
 
-        
+        print(indexPath)
         return cell
     }
     
@@ -178,9 +178,15 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         return plan.count
     }
 
-    @IBAction func onSliderChange(sender: UISlider) {
-        
-    }
+//    @IBAction func sliderChanged(sender: UISlider) {
+//        
+//        let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: NSIndexPath(forRow: slider.tag, inSection: 0)) as! ManageProgressCell
+//        
+//        cell.planInput.text = "Input: \(cell.planSlider.value) \(cell.unit)"
+//
+//
+//    }
+
 
 
     /*

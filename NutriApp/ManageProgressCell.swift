@@ -17,7 +17,7 @@ class ManageProgressCell: UITableViewCell {
     
     var unit: String! {
         didSet{
-            planInput.text = "Input: \(planSlider.value) \(unit)"
+           // planInput.text = "Input: \(planSlider.value) \(unit)"
         }
     }
     
@@ -33,7 +33,7 @@ class ManageProgressCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    @IBAction func onSliderChange(sender: UISlider) {
-        planInput.text = "Input: \(planSlider.value) \(unit)"
-    }
+//    @IBAction func onSliderChange(sender: UISlider) {
+//        planInput.text = "Input: \(planSlider.value) \(unit)"
+//    }
 }

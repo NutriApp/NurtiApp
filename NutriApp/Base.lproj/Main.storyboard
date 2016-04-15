@@ -418,10 +418,6 @@
                                                 </label>
                                                 <slider opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="eeu-8b-37c">
                                                     <rect key="frame" x="6" y="93" width="308" height="31"/>
-                                                    <connections>
-                                                        <action selector="onSliderChange:" destination="VyR-rB-tSY" eventType="valueChanged" id="gFk-pT-T6W"/>
-                                                        <action selector="onSliderChange:" destination="bvo-qZ-sft" eventType="valueChanged" id="qGw-Mc-4ZD"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -440,7 +436,7 @@
                                         <connections>
                                             <outlet property="planInput" destination="Zck-4d-HTs" id="HQl-9n-gbw"/>
                                             <outlet property="planLabel" destination="wiv-aa-Xv2" id="VZ4-go-6VE"/>
-                                            <outlet property="planSlider" destination="eeu-8b-37c" id="4HE-jY-OKP"/>
+                                            <outlet property="planSlider" destination="eeu-8b-37c" id="UwS-6I-lWc"/>
                                             <outlet property="planTitle" destination="AdR-3L-4xA" id="3cK-zu-1Di"/>
                                         </connections>
                                     </tableViewCell>
