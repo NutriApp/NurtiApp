@@ -10,21 +10,33 @@ import UIKit
 import Parse
 import ParseUI
 
-class ManageProgressViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ManageProgressViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var uploadLabel: UILabel!
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var uploadView: UIView!
     let uploadTap = UITapGestureRecognizer()
     var imageToUpload: UIImage?
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var commentsField: UITextField!
+    
+    var plan: NSDictionary!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialViews()
+        
+        plan = PFUser.currentUser()!["plan"] as! NSDictionary
+
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        //super.viewWillAppear(animated)
         
     }
 
@@ -86,6 +98,95 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         UIGraphicsEndImageContext()
         return newImage
     }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: indexPath) as! ManageProgressCell
+        
+        let item = indexPath.item
+        
+        var value = plan["protein"]![0] as! Float
+        var state = plan["protein"]![2] as! Bool
+        var unit = plan["protein"]![1] as! String
+        
+        switch item {
+        case 0:
+            cell.planTitle.text = "Protein"
+            cell.planLabel.text = "Goal: \(value) \(unit)"
+            cell.unit = unit
+        case 1:
+            value = plan["fruits"]![0] as! Float
+            state = plan["fruits"]![2] as! Bool
+            unit = plan["fruits"]![1] as! String
+            cell.planTitle.text = "Fruit"
+            cell.planLabel.text = "Goal: \(value) \(unit)"
+            cell.unit = unit
+        case 2:
+            value = plan["vegetable"]![0] as! Float
+            state = plan["vegetable"]![2] as! Bool
+            unit = plan["vegetable"]![1] as! String
+            cell.planTitle.text = "Vegetable"
+            cell.planLabel.text = "Vegetable: Goal \(value) \(unit)"
+            cell.unit = unit
+        case 3:
+            value = plan["grain"]![0] as! Float
+            state = plan["grain"]![2] as! Bool
+            unit = plan["grain"]![1] as! String
+            cell.planTitle.text = "Grain"
+            cell.planLabel.text = "Goal: \(value) \(unit)"
+            cell.unit = unit
+        case 4:
+            value = plan["dairy"]![0] as! Float
+            state = plan["dairy"]![2] as! Bool
+            unit = plan["dairy"]![1] as! String
+            cell.planTitle.text = "Dairy"
+            cell.planLabel.text = "Goal: \(value) \(unit)"
+            cell.unit = unit
+        case 5:
+            value = plan["oil"]![0] as! Float
+            state = plan["oil"]![2] as! Bool
+            unit = plan["oil"]![1] as! String
+            cell.planTitle.text = "Oil"
+            cell.planLabel.text = "Goal: \(value) \(unit)"
+            cell.unit = unit
+        default:
+            print("Unrecognized menu index")
+            return cell
+        }
+        
+        
+        if state {
+            cell.planTitle.alpha = 1
+            cell.planSlider.enabled = true
+            cell.planSlider.alpha = 1
+            cell.planLabel.alpha = 1
+            cell.planInput.alpha = 1
+        } else {
+            cell.planTitle.alpha = 0.1
+            cell.planSlider.enabled = false
+            cell.planSlider.alpha = 0.1
+            cell.planLabel.alpha = 0.1
+            cell.planInput.alpha = 0.1
+
+        }
+        //cell.planSlider.value = value
+
+        print(indexPath)
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return plan.count
+    }
+
+//    @IBAction func sliderChanged(sender: UISlider) {
+//        
+//        let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: NSIndexPath(forRow: slider.tag, inSection: 0)) as! ManageProgressCell
+//        
+//        cell.planInput.text = "Input: \(cell.planSlider.value) \(cell.unit)"
+//
+//
+//    }
+
 
 
     /*
