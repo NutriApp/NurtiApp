@@ -52,8 +52,10 @@ class User: NSObject {
         user.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("successfully updated profile")
+                NSNotificationCenter.defaultCenter().postNotificationName("EndProfileSave", object: nil)
             } else {
                 print("did not update profile")
+                NSNotificationCenter.defaultCenter().postNotificationName("ErrorProfileSave", object: nil)
             }
         }
 

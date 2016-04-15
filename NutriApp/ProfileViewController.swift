@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
@@ -46,9 +45,6 @@ class ProfileViewController: UIViewController {
         }
         if let age = user!["age"] as? String {
             ageLabel.text = age
-        }
-        if let role = user!["role"] as? String {
-            roleLabel.text = role
         }
         if let goal = user!["goal"] as? String {
             goalLabel.text = goal

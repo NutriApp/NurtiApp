@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class ProfileEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -19,20 +20,23 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var updateLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var uploadView: UIView!
     let uploadTap = UITapGestureRecognizer()
     var profileImage: PFFile?
     let user = PFUser.currentUser()
-    var role: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         idLabel.text = PFUser.currentUser()!.objectId
         
+        //Tap Gesture Recognizer
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+        
+        //Progress HUD
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didSaveProfile:"), name: "EndProfileSave", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("failedSaveProfile:"), name: "ErrorProfileSave", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -110,20 +114,12 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         return newImage
     }
     
-    @IBAction func onRoleChange(sender: AnyObject) {
-        switch segmentedControl.selectedSegmentIndex {
-            case 0:
-                role = "Client"
-                break
-            case 1:
-                role = "Mentor"
-                break
-            default:
-                break
-        }
-    }
     
     @IBAction func onSave(sender: AnyObject) {
+        //Loading Indicator
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hud.labelText = "Saving Profile"
+        
         var info = [String: String]()
         info["name"] = nameField.text
         info["email"] = emailField.text
@@ -131,10 +127,29 @@ class ProfileEditViewController: UIViewController, UIImagePickerControllerDelega
         info["gender"] = genderField.text
         info["weight"] = weightField.text
         info["goal"] = goalField.text
-        info["role"] = role
         
         User.saveUserProfile(info, image: profileImage)
         
+    }
+    
+    func didSaveProfile(notification: NSNotification) {
+        //Stop loading indicator
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        
+        //Go back to main profile page
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func failedSaveProfile(notification: NSNotification) {
+        //Stop loading indicator
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        
+        //Show alert message
+        let alertController = UIAlertController(title: "Error", message: "Error Saving Profile",preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     /*

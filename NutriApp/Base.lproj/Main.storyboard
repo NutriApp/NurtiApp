@@ -802,12 +802,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noB-oH-Cq6">
-                                <rect key="frame" x="143" y="152" width="40" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21n-4Z-g44">
                                 <rect key="frame" x="23" y="229" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -891,13 +885,11 @@
                             <constraint firstItem="FMk-MG-zth" firstAttribute="leading" secondItem="21n-4Z-g44" secondAttribute="trailing" constant="8" id="Mdc-e3-mAV"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W3J-HI-leQ" secondAttribute="trailing" constant="12" id="PZe-01-UuU"/>
                             <constraint firstItem="3fg-Xw-hyL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xwo-1Q-E62" secondAttribute="trailing" constant="16" id="RKj-pQ-axd"/>
-                            <constraint firstItem="noB-oH-Cq6" firstAttribute="leading" secondItem="gTu-cd-4NK" secondAttribute="trailing" constant="5" id="Tee-E2-gLg"/>
                             <constraint firstItem="gTu-cd-4NK" firstAttribute="leading" secondItem="spt-YN-Ubo" secondAttribute="leading" constant="23" id="USP-o5-Zl4"/>
                             <constraint firstItem="fkE-h1-Yf6" firstAttribute="bottom" secondItem="sto-Wz-oQD" secondAttribute="bottom" id="VbT-rZ-P9v"/>
                             <constraint firstAttribute="trailing" secondItem="fkE-h1-Yf6" secondAttribute="trailing" constant="20" id="Wv2-jT-1LO"/>
                             <constraint firstItem="W3J-HI-leQ" firstAttribute="top" secondItem="gFg-L5-WtN" secondAttribute="bottom" constant="23" id="ZPc-Td-TDy"/>
                             <constraint firstItem="Jvy-1a-lQ1" firstAttribute="top" secondItem="W3J-HI-leQ" secondAttribute="bottom" constant="12" id="aTA-ab-XVV"/>
-                            <constraint firstItem="noB-oH-Cq6" firstAttribute="top" secondItem="Jvy-1a-lQ1" secondAttribute="bottom" constant="14" id="b3b-f9-AQp"/>
                             <constraint firstItem="GrC-PR-ae5" firstAttribute="top" secondItem="Xwo-1Q-E62" secondAttribute="bottom" constant="21" id="b67-Qj-cUP"/>
                             <constraint firstAttribute="trailing" secondItem="lhk-dy-MMC" secondAttribute="trailing" constant="20" id="b8B-VY-pbc"/>
                             <constraint firstItem="lhk-dy-MMC" firstAttribute="bottom" secondItem="4oh-9X-cYw" secondAttribute="bottom" id="bih-YB-zM2"/>
@@ -906,7 +898,6 @@
                             <constraint firstItem="Xwo-1Q-E62" firstAttribute="top" secondItem="sto-Wz-oQD" secondAttribute="bottom" constant="19" id="clR-wK-UB3"/>
                             <constraint firstItem="4oh-9X-cYw" firstAttribute="top" secondItem="21n-4Z-g44" secondAttribute="bottom" constant="23" id="eoN-YP-1Xa"/>
                             <constraint firstItem="fkE-h1-Yf6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sto-Wz-oQD" secondAttribute="trailing" constant="16" id="fnV-Ab-jmj"/>
-                            <constraint firstAttribute="trailing" secondItem="noB-oH-Cq6" secondAttribute="trailing" constant="137" id="jsu-o5-gTF"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jvy-1a-lQ1" secondAttribute="trailing" constant="12" id="l6C-WS-jOH"/>
                             <constraint firstItem="Jvy-1a-lQ1" firstAttribute="leading" secondItem="gTu-cd-4NK" secondAttribute="trailing" constant="5" id="o1T-Yq-Eks"/>
                             <constraint firstItem="4oh-9X-cYw" firstAttribute="leading" secondItem="spt-YN-Ubo" secondAttribute="leading" constant="20" id="pvz-8S-Cx6"/>
@@ -935,7 +926,6 @@
                         <outlet property="idLabel" destination="Jvy-1a-lQ1" id="O4v-rn-dkF"/>
                         <outlet property="nameLabel" destination="W3J-HI-leQ" id="kXQ-qc-Cvj"/>
                         <outlet property="profileImageView" destination="gTu-cd-4NK" id="pPf-G7-c31"/>
-                        <outlet property="roleLabel" destination="noB-oH-Cq6" id="eQK-9D-nfN"/>
                         <outlet property="weightLabel" destination="SYd-uU-mrA" id="fay-JV-11Q"/>
                     </connections>
                 </viewController>
@@ -1010,16 +1000,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lKJ-Ha-rtf">
-                                <rect key="frame" x="143" y="156" width="157" height="29"/>
-                                <segments>
-                                    <segment title="Client"/>
-                                    <segment title="Mentor"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onRoleChange:" destination="EkH-KL-odw" eventType="valueChanged" id="uqL-U2-SIs"/>
-                                </connections>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="40C-6u-9qb">
                                 <rect key="frame" x="20" y="92" width="115" height="110"/>
                                 <subviews>
@@ -1065,7 +1045,6 @@
                         <outlet property="idLabel" destination="1im-ra-vxL" id="gf0-7J-JZ8"/>
                         <outlet property="nameField" destination="s46-HF-NEj" id="ShM-YG-SEh"/>
                         <outlet property="profileImageView" destination="FeD-Y2-LJ8" id="KQ2-fR-bUS"/>
-                        <outlet property="segmentedControl" destination="lKJ-Ha-rtf" id="N9B-s1-07r"/>
                         <outlet property="updateLabel" destination="FW7-Cf-IVb" id="sv7-K8-EWn"/>
                         <outlet property="uploadView" destination="40C-6u-9qb" id="Tfn-mc-aQf"/>
                         <outlet property="weightField" destination="4xK-XL-5yd" id="jz6-AP-7XC"/>
