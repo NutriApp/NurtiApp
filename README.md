@@ -8,17 +8,17 @@ The following functionality is completed:
 
 - [x] Users can sign up via Parse
 - [x] pull out menu
-- [ ] Users can make goals/nutrition plan in their profile
-- [ ] Upload pictures
-	- [ ] Via Parse or other hosting 
-- [ ] User settings
-- [ ] Update Progress
+- [x] Users can make goals/nutrition plan in their profile
+- [x] Upload pictures
+	- [x] Via Parse or other hosting 
+- [x] User settings
+- [x] Update Progress
+
+Optionals:
 - [ ] Supporters/Supporting Feed
     - [ ] Add/Delete Support
     - [ ] Comment on feed
     - [ ] Like
-
-Optionals:
 - [ ] View progress calendar of nutrition
 - [ ] Alerts and notification when other rates/review their diet plan
 - [ ] Videos of healthy food
@@ -82,6 +82,10 @@ Parse Server Data Schema:
 <img src = 'http://i.imgur.com/JdD8eqt.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <img src = 'http://i.imgur.com/wohSPXL.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
+
+All Required Complete!
+
+<img src = 'http://i.imgur.com/WJ53qrw.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Consideration:
 
