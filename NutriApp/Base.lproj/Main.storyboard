@@ -357,7 +357,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqz-CB-OYo">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sqz-CB-OYo">
                                 <rect key="frame" x="20" y="28" width="280" height="176"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Picture of What You Ate!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UH-7y-ah2">
@@ -382,12 +382,12 @@
                                     <constraint firstItem="6UH-7y-ah2" firstAttribute="top" secondItem="Sqz-CB-OYo" secondAttribute="top" constant="60" id="sQV-mI-aWA"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comments" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-qC-I8m">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comments" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xpk-qC-I8m">
                                 <rect key="frame" x="20" y="212" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UcP-8y-0tG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UcP-8y-0tG">
                                 <rect key="frame" x="0.0" y="250" width="320" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -456,6 +456,14 @@
                             <constraint firstItem="Xpk-qC-I8m" firstAttribute="top" secondItem="Sqz-CB-OYo" secondAttribute="bottom" constant="8" id="uYE-De-iNO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="N9i-uY-EIK">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="lso-Sj-i3h">
+                            <connections>
+                                <action selector="onCancel:" destination="bvo-qZ-sft" id="RTb-f0-Pnp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="ex7-Ph-4CB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="commentsField" destination="Xpk-qC-I8m" id="Mzf-vi-B0O"/>
                         <outlet property="foodImageView" destination="0eB-wM-JKs" id="ZNO-yF-qH5"/>
@@ -466,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVr-fd-hhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208" y="407"/>
+            <point key="canvasLocation" x="1740" y="407"/>
         </scene>
         <!--Plan View Controller-->
         <scene sceneID="aHK-ek-PQG">
@@ -779,7 +787,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1577" y="407"/>
+            <point key="canvasLocation" x="2109" y="407"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="lho-dz-9El">
@@ -831,7 +839,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bp4-Yl-GPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1938" y="407"/>
+            <point key="canvasLocation" x="2470" y="407"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="DBn-SP-UKb">
@@ -1167,6 +1175,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moW-ir-VFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3397" y="-236"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PwJ-aT-d0m">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7G2-qP-O5q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="boM-Xq-LWb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bvo-qZ-sft" kind="relationship" relationship="rootViewController" id="QmL-gD-9Ij"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyb-7j-p7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208" y="407"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -26,6 +26,9 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         super.viewDidLoad()
         initialViews()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         plan = PFUser.currentUser()!["plan"] as! NSDictionary
 
         self.tableView.dataSource = self
@@ -176,6 +179,16 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return plan.count
+    }
+    
+    
+    @IBAction func onCancel(sender: UIBarButtonItem) {
+        initialViews()
+        tableView.reloadData()
+    }
+    
+    func dismissKeyboard(){
+        view.endEditing(true)
     }
 
 //    @IBAction func sliderChanged(sender: UISlider) {
