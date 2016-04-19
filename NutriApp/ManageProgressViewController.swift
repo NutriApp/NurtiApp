@@ -9,6 +9,11 @@
 import UIKit
 import Parse
 import ParseUI
+import CoreData
+
+protocol saveSliderDelegate: class {
+    func saveSlider(picker: ManageProgressCell, value: Float, index: Int)
+}
 
 class ManageProgressViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var uploadLabel: UILabel!
@@ -16,13 +21,14 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var uploadView: UIView!
     let uploadTap = UITapGestureRecognizer()
     var imageToUpload: UIImage?
+    var input: [Float]!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentsField: UITextField!
     //@IBOutlet weak var slider: UISlider!
     
     var plan: NSDictionary!
-    var input: [Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    weak var delegate: saveSliderDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +38,13 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         view.addGestureRecognizer(tap)
         
         plan = PFUser.currentUser()!["plan"] as! NSDictionary
+        let initial: [Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        input = initial
+
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(initial, forKey: "sliderValue")
+        defaults.synchronize()
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -179,7 +192,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
             cell.planInput.alpha = 0.1
 
         }
-        //cell.planSlider.value = value
+        //cell.planSlider.value = input[item]
 
         //print(indexPath)
         return cell
@@ -203,21 +216,42 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: NSIndexPath(forRow: sender.tag, inSection: 0)) as! ManageProgressCell
         
-        cell.planInput.text = "Input: \(cell.planSlider.value) \(cell.unit)"
+        //cell.planInput.text = "Input: \(cell.planSlider.value) \(cell.unit)"
 
+//        print(sender.tag)
 
     }
 
     @IBAction func onPost(sender: UIBarButtonItem) {
-        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: <#T##AnyObject?#>) { (success: Bool, error: NSError?) -> Void in
-            if success {
-                
-            } else {
-                print(error)
-            }
+        
+        var cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! ManageProgressCell!//your custom cell class.
+
+        
+        for index in 0...5 {
+            cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! ManageProgressCell!
+            //input[index] = cell.planSlider.value
+            print(cell.planSlider.value)
+            print(cell.planTitle.text)
+            print(cell.planInput.text)
         }
         
+        
+        
+//        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: input) { (success: Bool, error: NSError?) -> Void in
+//            if success {
+//                
+//            } else {
+//                print(error)
+//            }
+//        }
+        
     }
+    
+//    func saveSlider(picker: ManageProgressCell, value:Float, index: Int) {
+//        input[index] = value
+//        print(input)
+//    }
+
 
 
     /*
