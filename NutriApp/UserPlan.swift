@@ -43,7 +43,7 @@ class UserPlan: NSObject {
         media["author"] = user // Pointer column type that points to PFUser
         media["caption"] = caption
         media["created_at"] = NSDate()
-        media["username_str"] = PFUser.currentUser()?.username
+        media["username_str"] = PFUser.currentUser()?.username!
         media["plan"] = user["plan"]
         media["current_plan"] = currentPlan
         media["input"] = input
@@ -63,17 +63,14 @@ class UserPlan: NSObject {
         return nil
     }
     
-//    class func queryUserPlan(objectID: String, completion: PFBooleanResultBlock){
-//        var query = PFQuery(className:"Plan")
-//        query.getObjectInBackgroundWithId(objectID) {
-//            (plan: PFObject?, error: NSError?) -> Void in
-//            if error != nil {
-//                print(error)
-//            } else {
-//                print(plan)
-//            }
-//        }
-//
-//    }
+    class func queryUserPlan(objectID: String, completion: (PFQueryArrayResultBlock)){
+        var query = PFQuery(className:"UserMedia")
+        query.orderByDescending("createdAt")
+        query.whereKey("username_str", equalTo: objectID)
+        //query.whereKeyExists(objectID)
+        query.findObjectsInBackgroundWithBlock(completion)
+
+
+    }
 
 }

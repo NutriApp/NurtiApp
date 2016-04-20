@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import Parse
 
 
 class MainViewController: UIViewController {
+    
+    var media: [PFObject]?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUser = PFUser.currentUser()!.username!
+        UserPlan.queryUserPlan(currentUser) { (media: [PFObject]?,error: NSError?) -> Void in
+            if error == nil {
+                print(media)
+                self.media = media
+            } else {
+                print(error)
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
