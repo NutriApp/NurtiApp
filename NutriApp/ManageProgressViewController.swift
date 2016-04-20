@@ -23,6 +23,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     var imageToUpload: UIImage?
     var input: [Float]!
     var defaults = NSUserDefaults.standardUserDefaults()
+    var currentPlan: [Float]!
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -72,7 +73,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         
         let initial: [Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         input = initial
-        
+        currentPlan = initial
         
         defaults.setObject(initial, forKey: "sliderValue")
         defaults.synchronize()
@@ -176,6 +177,7 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
             return cell
         }
         
+        currentPlan[item] = value
         
         if state {
             cell.planTitle.alpha = 1
@@ -205,6 +207,32 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         return plan.count
     }
     
+    func getCurrentPlan(){
+        var value = plan["protein"]![0] as! Float
+
+        for index in 0...5 {
+            
+        
+            switch index {
+            case 0:
+                currentPlan[index] = value
+            case 1:
+                value = plan["fruits"]![0] as! Float
+            case 2:
+                value = plan["vegetable"]![0] as! Float
+            case 3:
+                value = plan["grain"]![0] as! Float
+            case 4:
+                value = plan["dairy"]![0] as! Float
+            case 5:
+                value = plan["oil"]![0] as! Float
+            default:
+                print("Unrecognized menu index")
+            }
+            currentPlan[index] = value
+
+        }
+    }
     
     @IBAction func onCancel(sender: UIBarButtonItem) {
         initialViews()
@@ -220,9 +248,9 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         
         let value = defaults.objectForKey("sliderValue") as! [Float]!
 
+        getCurrentPlan()
         
-        
-        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: value) { (success: Bool, error: NSError?) -> Void in
+        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: value, currentPlan: currentPlan) { (success: Bool, error: NSError?) -> Void in
             if success {
                 print("user posted")
             } else {

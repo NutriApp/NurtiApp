@@ -28,7 +28,7 @@ class UserPlan: NSObject {
         
     }
     
-    class func postUserPost(image: UIImage?, withCaption caption: String?, input: AnyObject?, withCompletion completion: PFBooleanResultBlock?) {
+    class func postUserPost(image: UIImage?, withCaption caption: String?, input: AnyObject?, currentPlan: AnyObject?, withCompletion completion: PFBooleanResultBlock?) {
         // Create Parse object PFObject
         let user = PFUser.currentUser()!
 
@@ -45,6 +45,7 @@ class UserPlan: NSObject {
         media["created_at"] = NSDate()
         media["username_str"] = PFUser.currentUser()?.username
         media["plan"] = user["plan"]
+        media["current_plan"] = currentPlan
         media["input"] = input
         
         // Save object (following function will save the object in Parse asynchronously)
