@@ -34,7 +34,11 @@ class UserPlan: NSObject {
         let media = PFObject(className: "UserMedia")
         
         // Add relevant fields to the object
-        media["media"] = getPFFileFromImage(image) // PFFile column type
+        if image == nil {
+            media["media"] = NSNull()
+        } else {
+            media["media"] = getPFFileFromImage(image) // PFFile column type
+        }
         media["author"] = user // Pointer column type that points to PFUser
         media["caption"] = caption
         media["created_at"] = NSDate()
