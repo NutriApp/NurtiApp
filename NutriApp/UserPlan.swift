@@ -28,6 +28,40 @@ class UserPlan: NSObject {
         
     }
     
+    class func postUserPost(image: UIImage?, withCaption caption: String?, input: AnyObject?, withCompletion completion: PFBooleanResultBlock?) {
+        // Create Parse object PFObject
+        let user = PFUser.currentUser()!
+
+        let media = PFObject(className: "UserMedia")
+        
+        // Add relevant fields to the object
+        if image == nil {
+            media["media"] = NSNull()
+        } else {
+            media["media"] = getPFFileFromImage(image) // PFFile column type
+        }
+        media["author"] = user // Pointer column type that points to PFUser
+        media["caption"] = caption
+        media["created_at"] = NSDate()
+        media["username_str"] = PFUser.currentUser()?.username
+        media["plan"] = user["plan"]
+        media["input"] = input
+        
+        // Save object (following function will save the object in Parse asynchronously)
+        media.saveInBackgroundWithBlock(completion)
+    }
+    
+    class func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        if let image = image {
+            if let imageData = UIImagePNGRepresentation(image) {
+                print("got image")
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        print("could not get image")
+        return nil
+    }
+    
 //    class func queryUserPlan(objectID: String, completion: PFBooleanResultBlock){
 //        var query = PFQuery(className:"Plan")
 //        query.getObjectInBackgroundWithId(objectID) {

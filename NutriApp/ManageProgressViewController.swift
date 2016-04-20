@@ -9,6 +9,11 @@
 import UIKit
 import Parse
 import ParseUI
+import CoreData
+
+protocol saveSliderDelegate: class {
+    func saveSlider(picker: ManageProgressCell, value: Float, index: Int)
+}
 
 class ManageProgressViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var uploadLabel: UILabel!
@@ -16,17 +21,26 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var uploadView: UIView!
     let uploadTap = UITapGestureRecognizer()
     var imageToUpload: UIImage?
+    var input: [Float]!
+    var defaults = NSUserDefaults.standardUserDefaults()
+
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentsField: UITextField!
+    //@IBOutlet weak var slider: UISlider!
     
     var plan: NSDictionary!
+    weak var delegate: saveSliderDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialViews()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         plan = PFUser.currentUser()!["plan"] as! NSDictionary
+        
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -55,6 +69,13 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         uploadTap.addTarget(self, action: Selector("onUploadTap:"))
         uploadView.addGestureRecognizer(uploadTap)
         uploadView.userInteractionEnabled = true
+        
+        let initial: [Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        input = initial
+        
+        
+        defaults.setObject(initial, forKey: "sliderValue")
+        defaults.synchronize()
     }
     
     //Upload image tapped
@@ -103,6 +124,8 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: indexPath) as! ManageProgressCell
         
         let item = indexPath.item
+//        slider.tag = indexPath.item
+        cell.planSlider.tag = item
         
         var value = plan["protein"]![0] as! Float
         var state = plan["protein"]![2] as! Bool
@@ -158,17 +181,21 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
             cell.planTitle.alpha = 1
             cell.planSlider.enabled = true
             cell.planSlider.alpha = 1
+//            slider.enabled = true
+//            slider.alpha = 1
             cell.planLabel.alpha = 1
             cell.planInput.alpha = 1
         } else {
             cell.planTitle.alpha = 0.1
             cell.planSlider.enabled = false
             cell.planSlider.alpha = 0.1
+//            slider.enabled = false
+//            slider.alpha = 0.1
             cell.planLabel.alpha = 0.1
             cell.planInput.alpha = 0.1
 
         }
-        //cell.planSlider.value = value
+        //cell.planSlider.value = input[item]
 
         //print(indexPath)
         return cell
@@ -177,14 +204,37 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return plan.count
     }
+    
+    
+    @IBAction func onCancel(sender: UIBarButtonItem) {
+        initialViews()
+        tableView.reloadData()
+    }
+    
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
 
-//    @IBAction func sliderChanged(sender: UISlider) {
-//        
-//        let cell = tableView.dequeueReusableCellWithIdentifier("ManageProgressCell", forIndexPath: NSIndexPath(forRow: slider.tag, inSection: 0)) as! ManageProgressCell
-//        
-//        cell.planInput.text = "Input: \(cell.planSlider.value) \(cell.unit)"
-//
-//
+
+    @IBAction func onPost(sender: UIBarButtonItem) {
+        
+        let value = defaults.objectForKey("sliderValue") as! [Float]!
+
+        
+        
+        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: value) { (success: Bool, error: NSError?) -> Void in
+            if success {
+                print("user posted")
+            } else {
+                print(error)
+            }
+        }
+        
+    }
+    
+//    func saveSlider(picker: ManageProgressCell, value:Float, index: Int) {
+//        input[index] = value
+//        print(input)
 //    }
 
 
