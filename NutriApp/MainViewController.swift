@@ -10,24 +10,26 @@ import UIKit
 import Parse
 
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var media: [PFObject]?
     
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let currentUser = PFUser.currentUser()!.username!
-        UserPlan.queryUserPlan(currentUser) { (media: [PFObject]?,error: NSError?) -> Void in
-            if error == nil {
-                print(media)
-                self.media = media
-            } else {
-                print(error)
-            }
-        }
+        
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(aimated: Bool) {
+        fetchMedia()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +37,34 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func fetchMedia(){
+        let currentUser = PFUser.currentUser()!.username!
+        UserPlan.queryUserPlan(currentUser) { (media: [PFObject]?,error: NSError?) -> Void in
+            if error == nil {
+                print(media)
+                self.media = media
+                self.tableView.reloadData()
+            } else {
+                print(error)
+            }
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! HomeCell
+        
+        
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let media = media {
+            return media.count
+        } else {
+            return 0
+        }
+    }
 
     /*
     // MARK: - Navigation
