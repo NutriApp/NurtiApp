@@ -87,6 +87,10 @@ All Required Complete!
 
 <img src = 'http://i.imgur.com/WJ53qrw.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
 
+<img src = 'http://i.imgur.com/tsOvqBD.gif' title = 'Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+
 Consideration:
 
 - What is your product pitch?
