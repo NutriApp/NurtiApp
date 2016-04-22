@@ -14,6 +14,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var media: [PFObject]?
     var todayMedia: [PFObject]?
+    var todayPlan: [Float]?
 
     @IBOutlet weak var protienPercent: UILabel!
     @IBOutlet weak var fruitsPercent: UILabel!
@@ -63,7 +64,38 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if ((error == nil) && (media != nil)) {
                 self.todayMedia = media
                 let todayProgress = (media![0].valueForKey("cumulative")! as! [Float])
+                self.todayPlan = (media![0].valueForKey("current_plan")! as! [Float])
                 print(todayProgress)
+                var percent = 0.0 as Float
+                for index in 0...5 {
+                    if self.todayPlan![index] != 0 {
+                        percent = todayProgress[index] / self.todayPlan![index]
+                    } else {
+                        percent = 0.0
+                    }
+                    switch index {
+                    case 0:
+                        self.protienPercent.text = String(format: "%.1f", percent*100) + "%"
+                        self.protienPercent.hidden = false
+                    case 1:
+                        self.fruitsPercent.text = String(format: "%.1f", percent*100) + "%"
+                        self.fruitsPercent.hidden = false
+                    case 2:
+                        self.vegiPercent.text = String(format: "%.1f", percent*100) + "%"
+                        self.vegiPercent.hidden = false
+                    case 3:
+                        self.grainPercent.text = String(format: "%.1f", percent*100) + "%"
+                        self.grainPercent.hidden = false
+                    case 4:
+                        self.dairyPercent.text = String(format: "%.1f", percent*100) + "%"
+                        self.dairyPercent.hidden = false
+                    case 5:
+                        self.oilPercent.text = String(format: "%.1f", percent*100) + "%"
+                        self.oilPercent.hidden = false
+                    default:
+                        print("Unrecognized menu index")
+                    }
+                }
             } else {
                 print(error)
             }
