@@ -15,6 +15,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var media: [PFObject]?
     var todayMedia: [PFObject]?
 
+    @IBOutlet weak var protienPercent: UILabel!
+    @IBOutlet weak var fruitsPercent: UILabel!
+    @IBOutlet weak var vegiPercent: UILabel!
+    @IBOutlet weak var grainPercent: UILabel!
+    @IBOutlet weak var dairyPercent: UILabel!
+    @IBOutlet weak var oilPercent: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -39,21 +45,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    //       let log = ["protein": [6, "oz(s)", true], "fruits": [2, "cup(s)", true], "vegetable": [3, "cup(s)", true], "grain": [3, "oz(s)", true], "dairy": [3, "cup(s)", true], "oil": [6, "tsp(s)", true]  ]
     func fetchMedia(){
         let currentUser = PFUser.currentUser()!.username!
-//        UserPlan.queryUserPlan(currentUser) { (media: [PFObject]?,error: NSError?) -> Void in
-//            if error == nil {
+        UserPlan.queryUserPlan(currentUser) { (media: [PFObject]?,error: NSError?) -> Void in
+            if error == nil {
 //                print(media)
-//                self.media = media
-//                self.tableView.reloadData()
-//            } else {
-//                print(error)
-//            }
-//        }
+                self.media = media
+                self.tableView.reloadData()
+            } else {
+                print(error)
+            }
+        }
         
 
         UserPlan.queryTodayPlan(currentUser) { (media: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
+            if ((error == nil) && (media != nil)) {
                 self.todayMedia = media
                 let todayProgress = (media![0].valueForKey("cumulative")! as! [Float])
                 print(todayProgress)
