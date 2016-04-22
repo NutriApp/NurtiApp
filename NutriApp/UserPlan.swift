@@ -64,13 +64,28 @@ class UserPlan: NSObject {
     }
     
     class func queryUserPlan(objectID: String, completion: (PFQueryArrayResultBlock)){
-        var query = PFQuery(className:"UserMedia")
+        let query = PFQuery(className:"UserMedia")
         query.orderByDescending("createdAt")
         query.whereKey("username_str", equalTo: objectID)
         //query.whereKeyExists(objectID)
         query.findObjectsInBackgroundWithBlock(completion)
 
 
+    }
+    
+    class func queryTodayPlan(objectID: String, completion: (PFQueryArrayResultBlock)){
+        let now = NSDate()
+        let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        let midnightOfToday = cal!.startOfDayForDate(now)
+
+
+        let query = PFQuery(className:"UserMedia")
+        query.orderByDescending("createdAt")
+        query.whereKey("username_str", equalTo: objectID)
+        query.whereKey("updatedAt", greaterThanOrEqualTo: midnightOfToday)
+        query.findObjectsInBackgroundWithBlock(completion)
+        
+        
     }
 
 }

@@ -39,11 +39,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func fetchMedia(){
         let currentUser = PFUser.currentUser()!.username!
-        UserPlan.queryUserPlan(currentUser) { (media: [PFObject]?,error: NSError?) -> Void in
+//        UserPlan.queryUserPlan(currentUser) { (media: [PFObject]?,error: NSError?) -> Void in
+//            if error == nil {
+//                print(media)
+//                self.media = media
+//                self.tableView.reloadData()
+//            } else {
+//                print(error)
+//            }
+//        }
+        
+        UserPlan.queryTodayPlan(currentUser) { (todayMedia: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
-                print(media)
-                self.media = media
-                self.tableView.reloadData()
+                print(todayMedia)
             } else {
                 print(error)
             }
