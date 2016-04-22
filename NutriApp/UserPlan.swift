@@ -28,7 +28,7 @@ class UserPlan: NSObject {
         
     }
     
-    class func postUserPost(image: UIImage?, withCaption caption: String?, input: AnyObject?, currentPlan: AnyObject?, withCompletion completion: PFBooleanResultBlock?) {
+    class func postUserPost(image: UIImage?, withCaption caption: String?, input: AnyObject?, currentPlan: AnyObject?, cumulative: AnyObject?, withCompletion completion: PFBooleanResultBlock?) {
         // Create Parse object PFObject
         let user = PFUser.currentUser()!
 
@@ -47,6 +47,7 @@ class UserPlan: NSObject {
         media["plan"] = user["plan"]
         media["current_plan"] = currentPlan
         media["input"] = input
+        media["cumulative"] = cumulative
         
         // Save object (following function will save the object in Parse asynchronously)
         media.saveInBackgroundWithBlock(completion)

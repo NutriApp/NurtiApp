@@ -13,6 +13,8 @@ import Parse
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var media: [PFObject]?
+    var todayMedia: [PFObject]?
+
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -49,13 +51,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            }
 //        }
         
-        UserPlan.queryTodayPlan(currentUser) { (todayMedia: [PFObject]?, error: NSError?) -> Void in
+
+        UserPlan.queryTodayPlan(currentUser) { (media: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
-                print(todayMedia)
+                self.todayMedia = media
+                let todayProgress = (media![0].valueForKey("cumulative")! as! [Float])
+                print(todayProgress)
             } else {
                 print(error)
             }
         }
+        
+//        UserPlan.queryTodayPlan(currentUser) { (todayMedia: [PFObject]?, error: NSError?) -> Void in
+//            if error == nil {
+//                print(todayMedia)
+//            } else {
+//                print(error)
+//            }
+//        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

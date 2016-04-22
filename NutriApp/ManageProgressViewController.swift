@@ -250,13 +250,36 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
 
         getCurrentPlan()
         
-        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: value, currentPlan: currentPlan) { (success: Bool, error: NSError?) -> Void in
-            if success {
-                print("user posted")
+        let currentUser = PFUser.currentUser()!.username!
+        var todayMedia: [PFObject]?
+        
+        var initial: [Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        
+        UserPlan.queryTodayPlan(currentUser) { (media: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                todayMedia = media
+                for item in 0...((media?.count)!-1) {
+                    let temp = (media![item].valueForKey("input")! as! [Float])
+                    for index in 0...5 {
+                        initial[index] = initial[index] + temp[index]
+                    }
+                    //                    initial = initial + (media![item].valueForKey("input")! as! [Float])
+                    print(media![item].valueForKey("input")!)
+                    print(initial)
+                }
+                UserPlan.postUserPost(self.imageToUpload, withCaption: self.commentsField.text, input: value, currentPlan: self.currentPlan, cumulative: initial) { (success: Bool, error: NSError?) -> Void in
+                    if success {
+                        print("user posted")
+                    } else {
+                        print(error)
+                    }
+                }
             } else {
                 print(error)
             }
         }
+        
+
         
     }
     
