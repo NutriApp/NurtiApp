@@ -265,15 +265,18 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         UserPlan.queryTodayPlan(currentUser) { (media: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 todayMedia = media
-                for item in 0...((media?.count)!-1) {
-                    let temp = (media![item].valueForKey("input")! as! [Float])
-                    for index in 0...5 {
-                        initial[index] = initial[index] + temp[index]
-                    }
-                    //                    initial = initial + (media![item].valueForKey("input")! as! [Float])
-                    print(media![item].valueForKey("input")!)
-                    print(initial)
+                if media?.count != 0 {
+                        let temp = (media![0].valueForKey("cumulative")! as! [Float])
+                        for index in 0...5 {
+                            initial[index] = value[index] + temp[index]
+                        }
+                        //                    initial = initial + (media![item].valueForKey("input")! as! [Float])
+                        print(media![0].valueForKey("cumulative")!)
+                        print(initial)
+                } else {
+                    initial = value
                 }
+                
                 UserPlan.postUserPost(self.imageToUpload, withCaption: self.commentsField.text, input: value, currentPlan: self.currentPlan, cumulative: initial) { (success: Bool, error: NSError?) -> Void in
                     if success {
                         print("user posted")

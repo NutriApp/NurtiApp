@@ -15,6 +15,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var media: [PFObject]?
     var todayMedia: [PFObject]?
     var todayPlan: [Float]?
+    
+    var input: [Float]!
+    var plan: [Float]!
 
     @IBOutlet weak var protienPercent: UILabel!
     @IBOutlet weak var fruitsPercent: UILabel!
@@ -101,6 +104,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         
+        if todayPlan == nil {
+            self.protienPercent.text = "0%"
+            self.protienPercent.hidden = false
+            self.fruitsPercent.text = "0%"
+            self.fruitsPercent.hidden = false
+            self.vegiPercent.text = "0%"
+            self.vegiPercent.hidden = false
+            self.grainPercent.text = "0%"
+            self.grainPercent.hidden = false
+            self.dairyPercent.text = "0%"
+            self.dairyPercent.hidden = false
+            self.oilPercent.text = "0%"
+            self.oilPercent.hidden = false
+        }
+        
 //        UserPlan.queryTodayPlan(currentUser) { (todayMedia: [PFObject]?, error: NSError?) -> Void in
 //            if error == nil {
 //                print(todayMedia)
@@ -113,7 +131,61 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! HomeCell
         
+        input = media![indexPath.row].valueForKey("input")! as! [Float]
+        plan = media![indexPath.row].valueForKey("current_plan")! as? [Float]
+        let cumulativePlan = media![indexPath.row].valueForKey("cumulative")! as? [Float]
+
+        let caption = media![indexPath.row].valueForKey("caption")! as? String
+        print(plan)
+        print(input)
         
+        if let image = media![indexPath.row].valueForKey("media")! as? PFFile {
+            cell.foodImage.file = image
+            cell.foodImage.loadInBackground()
+        }
+
+        
+        cell.commentText.text = caption
+        
+        var percent = 0.0 as Float
+        var cumulativePercent = 0.0 as Float
+
+        
+        for index in 0...5 {
+            if plan[index] != 0 {
+                percent = input[index] / plan[index]
+                cumulativePercent = cumulativePlan![index] / plan[index]
+            } else {
+                percent = 0.0
+            }
+            switch index {
+            case 0:
+                cell.proteinPercent.text = String(format: "%.1f", percent*100) + "%"
+                cell.cumalativeProteinPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+            case 1:
+                cell.fruitsPercent.text = String(format: "%.1f", percent*100) + "%"
+                cell.cumalativeFruitPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+            case 2:
+                cell.vegiPercent.text = String(format: "%.1f", percent*100) + "%"
+                cell.cumaltiveVegiPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+
+            case 3:
+                cell.grainPercent.text = String(format: "%.1f", percent*100) + "%"
+                cell.cumaltiveGrainPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+
+            case 4:
+                cell.dairyPercent.text = String(format: "%.1f", percent*100) + "%"
+                cell.cumaltiveDairyPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+
+            case 5:
+                cell.oilPercent.text = String(format: "%.1f", percent*100) + "%"
+                cell.cumaltiveOilPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+
+            default:
+                print("Unrecognized menu index")
+            }
+        }
+
         
         return cell
     }
