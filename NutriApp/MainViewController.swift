@@ -142,6 +142,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let image = media![indexPath.row].valueForKey("media")! as? PFFile {
             cell.foodImage.file = image
             cell.foodImage.loadInBackground()
+        } else {
+            cell.foodImage.image = UIImage(named: "White_square_with_question_mark")
         }
         let username = media![indexPath.row].valueForKey("username_str")! as? String
 

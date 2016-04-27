@@ -282,6 +282,10 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
                         print("user posted")
                         NSNotificationCenter.defaultCenter().postNotificationName("EndPost", object: nil)
                         
+                        let VC1 = self.storyboard!.instantiateViewControllerWithIdentifier("ContainerViewController") as! ContainerViewController
+                        let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
+                        self.presentViewController(navController, animated:true, completion: nil)
+                        
                     } else {
                         print(error)
                         NSNotificationCenter.defaultCenter().postNotificationName("ErrorPost", object: nil)
