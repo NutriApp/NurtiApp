@@ -131,75 +131,93 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! HomeCell
         
-        input = media![indexPath.row].valueForKey("input")! as! [Float]
-        plan = media![indexPath.row].valueForKey("current_plan")! as? [Float]
-        let cumulativePlan = media![indexPath.row].valueForKey("cumulative")! as? [Float]
-
-        let caption = media![indexPath.row].valueForKey("caption")! as? String
-
+        cell.media = media![indexPath.row] 
         
-        if let image = media![indexPath.row].valueForKey("media")! as? PFFile {
-            cell.foodImage.file = image
-            cell.foodImage.loadInBackground()
-        } else {
-            cell.foodImage.image = UIImage(named: "White_square_with_question_mark")
-        }
-        let username = media![indexPath.row].valueForKey("username_str")! as? String
-
-        cell.usernameLabel.text = username
-        cell.commentText.text = caption
-        
-        var percent = 0.0 as Float
-        var cumulativePercent = 0.0 as Float
-
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        formatter.timeStyle = .ShortStyle
-        
-        let date = media![indexPath.row].valueForKey("created_at")! as! NSDate
-        let dateString = formatter.stringFromDate(date)
-        
-        cell.dateLabel.text = dateString
-                
-        for index in 0...5 {
-            if plan[index] != 0 {
-                percent = input[index] / plan[index]
-                cumulativePercent = cumulativePlan![index] / plan[index]
-            } else {
-                percent = 0.0
-            }
-            if cumulativePercent > 999.0 {
-                cumulativePercent = 999.0
-            }
-            switch index {
-            case 0:
-                cell.proteinPercent.text = String(format: "%.0f", percent*100) + "%"
-                cell.cumalativeProteinPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
-            case 1:
-                cell.fruitsPercent.text = String(format: "%.0f", percent*100) + "%"
-                cell.cumalativeFruitPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
-            case 2:
-                cell.vegiPercent.text = String(format: "%.0f", percent*100) + "%"
-                cell.cumaltiveVegiPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
-
-            case 3:
-                cell.grainPercent.text = String(format: "%.0f", percent*100) + "%"
-                cell.cumaltiveGrainPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
-
-            case 4:
-                cell.dairyPercent.text = String(format: "%.0f", percent*100) + "%"
-                cell.cumaltiveDairyPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
-
-            case 5:
-                cell.oilPercent.text = String(format: "%.0f", percent*100) + "%"
-                cell.cumaltiveOilPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
-
-            default:
-                print("Unrecognized menu index")
-            }
-        }
-
-        
+//        input = media![indexPath.row].valueForKey("input")! as! [Float]
+//        plan = media![indexPath.row].valueForKey("current_plan")! as? [Float]
+//        let cumulativePlan = media![indexPath.row].valueForKey("cumulative")! as? [Float]
+//        
+//        let caption = media![indexPath.row].valueForKey("caption")! as? String
+//        
+//        if let image = media![indexPath.row].valueForKey("media")! as? PFFile {
+//            cell.foodImage.file = image
+//            cell.foodImage.loadInBackground()
+//        } else {
+//            cell.foodImage.image = UIImage(named: "White_square_with_question_mark")
+//        }
+//        
+//        
+//        let username = media![indexPath.row].valueForKey("username_str")! as? String
+//        
+//        cell.usernameLabel.text = username
+//        cell.commentText.text = caption
+//        
+//        var percent = 0.0 as Float
+//        var cumulativePercent = 0.0 as Float
+//        
+//        let formatter = NSDateFormatter()
+//        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+//        formatter.timeStyle = .ShortStyle
+//        
+//        let date = media![indexPath.row].valueForKey("created_at")! as! NSDate
+//        let dateString = formatter.stringFromDate(date)
+//        
+//        cell.dateLabel.text = dateString
+//        
+//        
+//        for index in 0...5 {
+//            if plan[index] != 0 {
+//                percent = input[index] / plan[index]
+//                cumulativePercent = cumulativePlan![index] / plan[index]
+//            } else {
+//                percent = 0.0
+//            }
+//            if cumulativePercent > 999.0 {
+//                cumulativePercent = 999.0
+//            }
+//            switch index {
+//            case 0:
+//                cell.proteinPercent.text = String(format: "%.0f", percent*100) + "%"
+//                cell.cumalativeProteinPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
+//                if input[index] != 0 {
+//                    cell.cumalativeProteinPercent.textColor = UIColor.redColor()
+//                }
+//            case 1:
+//                cell.fruitsPercent.text = String(format: "%.0f", percent*100) + "%"
+//                cell.cumalativeFruitPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
+//                if input[index] != 0 {
+//                    cell.cumalativeProteinPercent.textColor = UIColor.redColor()
+//                }
+//            case 2:
+//                cell.vegiPercent.text = String(format: "%.0f", percent*100) + "%"
+//                cell.cumaltiveVegiPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
+//                if input[index] != 0 {
+//                    cell.cumaltiveVegiPercent.textColor = UIColor.redColor()
+//                }
+//            case 3:
+//                cell.grainPercent.text = String(format: "%.0f", percent*100) + "%"
+//                cell.cumaltiveGrainPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
+//                if input[index] != 0 {
+//                    cell.cumaltiveGrainPercent.textColor = UIColor.redColor()
+//                }
+//            case 4:
+//                cell.dairyPercent.text = String(format: "%.0f", percent*100) + "%"
+//                cell.cumaltiveDairyPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
+//                if input[index] != 0 {
+//                    cell.cumaltiveDairyPercent.textColor = UIColor.redColor()
+//                }
+//            case 5:
+//                cell.oilPercent.text = String(format: "%.0f", percent*100) + "%"
+//                cell.cumaltiveOilPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
+//                if input[index] != 0 {
+//                    cell.cumaltiveOilPercent.textColor = UIColor.redColor()
+//                }
+//            default:
+//                print("Unrecognized menu index")
+//            }
+//        }
+//
+//                
         return cell
     }
     
