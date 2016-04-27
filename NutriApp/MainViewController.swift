@@ -76,6 +76,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     } else {
                         percent = 0.0
                     }
+                    
+                    if percent > 999.0 {
+                        percent = 999.0
+                    }
                     switch index {
                     case 0:
                         self.protienPercent.text = String(format: "%.1f", percent*100) + "%"
