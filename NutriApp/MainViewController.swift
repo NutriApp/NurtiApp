@@ -143,13 +143,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.foodImage.file = image
             cell.foodImage.loadInBackground()
         }
+        let username = media![indexPath.row].valueForKey("username_str")! as? String
 
-        
+        cell.usernameLabel.text = username
         cell.commentText.text = caption
         
         var percent = 0.0 as Float
         var cumulativePercent = 0.0 as Float
 
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
+        
+        let date = media![indexPath.row].valueForKey("created_at")! as! NSDate
+        let dateString = formatter.stringFromDate(date)
+        
+        cell.dateLabel.text = dateString
+        
+        print(date)
         
         for index in 0...5 {
             if plan[index] != 0 {

@@ -28,6 +28,9 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var cumaltiveGrainPercent: UILabel!
     @IBOutlet weak var cumaltiveDairyPercent: UILabel!
     @IBOutlet weak var cumaltiveOilPercent: UILabel!
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
