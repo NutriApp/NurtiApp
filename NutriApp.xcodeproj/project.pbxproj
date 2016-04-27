@@ -28,6 +28,7 @@
 		BC60F2631CADCE3900642522 /* SupportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC60F2621CADCE3900642522 /* SupportingViewController.swift */; };
 		BC60F2651CADCE4300642522 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC60F2641CADCE4300642522 /* CalendarViewController.swift */; };
 		BC60F2671CADCE4C00642522 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC60F2661CADCE4C00642522 /* ProfileViewController.swift */; };
+		BCA291F11CC71EEA0080D757 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA291F01CC71EEA0080D757 /* HomeCell.swift */; };
 		BCACC2391CB73EA700DD7648 /* UserPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCACC2381CB73EA700DD7648 /* UserPlan.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		BC60F2621CADCE3900642522 /* SupportingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportingViewController.swift; sourceTree = "<group>"; };
 		BC60F2641CADCE4300642522 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BC60F2661CADCE4C00642522 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BCA291F01CC71EEA0080D757 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		BCACC2381CB73EA700DD7648 /* UserPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPlan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				BC00195F1CBEE8F600F1564A /* ManageProgressCell.swift */,
+				BCA291F01CC71EEA0080D757 /* HomeCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				88C667B01CB1C7B0005A53AB /* LoginViewController.swift in Sources */,
 				88EDB6BE1CB723C300338B2D /* ProfileEditViewController.swift in Sources */,
+				BCA291F11CC71EEA0080D757 /* HomeCell.swift in Sources */,
 				BC60F25D1CADA7ED00642522 /* MainNavigationController.swift in Sources */,
 				BC60F2631CADCE3900642522 /* SupportingViewController.swift in Sources */,
 				BCACC2391CB73EA700DD7648 /* UserPlan.swift in Sources */,

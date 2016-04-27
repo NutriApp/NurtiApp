@@ -28,7 +28,7 @@ class UserPlan: NSObject {
         
     }
     
-    class func postUserPost(image: UIImage?, withCaption caption: String?, input: AnyObject?, currentPlan: AnyObject?, withCompletion completion: PFBooleanResultBlock?) {
+    class func postUserPost(image: UIImage?, withCaption caption: String?, input: AnyObject?, currentPlan: AnyObject?, cumulative: AnyObject?, withCompletion completion: PFBooleanResultBlock?) {
         // Create Parse object PFObject
         let user = PFUser.currentUser()!
 
@@ -43,10 +43,11 @@ class UserPlan: NSObject {
         media["author"] = user // Pointer column type that points to PFUser
         media["caption"] = caption
         media["created_at"] = NSDate()
-        media["username_str"] = PFUser.currentUser()?.username
+        media["username_str"] = PFUser.currentUser()?.username!
         media["plan"] = user["plan"]
         media["current_plan"] = currentPlan
         media["input"] = input
+        media["cumulative"] = cumulative
         
         // Save object (following function will save the object in Parse asynchronously)
         media.saveInBackgroundWithBlock(completion)
@@ -63,17 +64,29 @@ class UserPlan: NSObject {
         return nil
     }
     
-//    class func queryUserPlan(objectID: String, completion: PFBooleanResultBlock){
-//        var query = PFQuery(className:"Plan")
-//        query.getObjectInBackgroundWithId(objectID) {
-//            (plan: PFObject?, error: NSError?) -> Void in
-//            if error != nil {
-//                print(error)
-//            } else {
-//                print(plan)
-//            }
-//        }
-//
-//    }
+    class func queryUserPlan(objectID: String, completion: (PFQueryArrayResultBlock)){
+        let query = PFQuery(className:"UserMedia")
+        query.orderByDescending("createdAt")
+        query.whereKey("username_str", equalTo: objectID)
+        //query.whereKeyExists(objectID)
+        query.findObjectsInBackgroundWithBlock(completion)
+
+
+    }
+    
+    class func queryTodayPlan(objectID: String, completion: (PFQueryArrayResultBlock)){
+        let now = NSDate()
+        let cal = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        let midnightOfToday = cal!.startOfDayForDate(now)
+
+
+        let query = PFQuery(className:"UserMedia")
+        query.orderByDescending("createdAt")
+        query.whereKey("username_str", equalTo: objectID)
+        query.whereKey("updatedAt", greaterThanOrEqualTo: midnightOfToday)
+        query.findObjectsInBackgroundWithBlock(completion)
+        
+        
+    }
 
 }

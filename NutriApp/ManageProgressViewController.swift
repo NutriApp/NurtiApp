@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 import CoreData
+import MBProgressHUD
 
 protocol saveSliderDelegate: class {
     func saveSlider(picker: ManageProgressCell, value: Float, index: Int)
@@ -47,6 +48,9 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         self.tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didPost:"), name: "EndPost", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("failedPost:"), name: "ErrorPost", object: nil)
         // Do any additional setup after loading the view.
     }
     
@@ -250,15 +254,73 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
 
         getCurrentPlan()
         
-        UserPlan.postUserPost(imageToUpload, withCaption: commentsField.text, input: value, currentPlan: currentPlan) { (success: Bool, error: NSError?) -> Void in
-            if success {
-                print("user posted")
+        let currentUser = PFUser.currentUser()!.username!
+        var todayMedia: [PFObject]?
+        
+        var initial: [Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hud.labelText = "Posting"
+        
+        UserPlan.queryTodayPlan(currentUser) { (media: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                todayMedia = media
+                if media?.count != 0 {
+                        let temp = (media![0].valueForKey("cumulative")! as! [Float])
+                        for index in 0...5 {
+                            initial[index] = value[index] + temp[index]
+                        }
+                        //                    initial = initial + (media![item].valueForKey("input")! as! [Float])
+                        print(media![0].valueForKey("cumulative")!)
+                        print(initial)
+                } else {
+                    initial = value
+                }
+                
+                UserPlan.postUserPost(self.imageToUpload, withCaption: self.commentsField.text, input: value, currentPlan: self.currentPlan, cumulative: initial) { (success: Bool, error: NSError?) -> Void in
+                    if success {
+                        print("user posted")
+                        NSNotificationCenter.defaultCenter().postNotificationName("EndPost", object: nil)
+                        
+                        let VC1 = self.storyboard!.instantiateViewControllerWithIdentifier("ContainerViewController") as! ContainerViewController
+                        let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
+                        self.presentViewController(navController, animated:true, completion: nil)
+                        
+                    } else {
+                        print(error)
+                        NSNotificationCenter.defaultCenter().postNotificationName("ErrorPost", object: nil)
+
+                    }
+                }
             } else {
                 print(error)
             }
         }
         
+
+        
     }
+    
+    func didPost(notification: NSNotification) {
+        //Stop loading indicator
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        
+        //Go back to main profile page
+//        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func failedPost(notification: NSNotification) {
+        //Stop loading indicator
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        
+        //Show alert message
+        let alertController = UIAlertController(title: "Error", message: "Error Posting",preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     
 //    func saveSlider(picker: ManageProgressCell, value:Float, index: Int) {
 //        input[index] = value
