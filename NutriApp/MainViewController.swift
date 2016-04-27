@@ -136,8 +136,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cumulativePlan = media![indexPath.row].valueForKey("cumulative")! as? [Float]
 
         let caption = media![indexPath.row].valueForKey("caption")! as? String
-        print(plan)
-        print(input)
+
         
         if let image = media![indexPath.row].valueForKey("media")! as? PFFile {
             cell.foodImage.file = image
@@ -161,9 +160,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let dateString = formatter.stringFromDate(date)
         
         cell.dateLabel.text = dateString
-        
-        print(date)
-        
+                
         for index in 0...5 {
             if plan[index] != 0 {
                 percent = input[index] / plan[index]
@@ -171,28 +168,31 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else {
                 percent = 0.0
             }
+            if cumulativePercent > 999.0 {
+                cumulativePercent = 999.0
+            }
             switch index {
             case 0:
-                cell.proteinPercent.text = String(format: "%.1f", percent*100) + "%"
-                cell.cumalativeProteinPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+                cell.proteinPercent.text = String(format: "%.0f", percent*100) + "%"
+                cell.cumalativeProteinPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
             case 1:
-                cell.fruitsPercent.text = String(format: "%.1f", percent*100) + "%"
-                cell.cumalativeFruitPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+                cell.fruitsPercent.text = String(format: "%.0f", percent*100) + "%"
+                cell.cumalativeFruitPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
             case 2:
-                cell.vegiPercent.text = String(format: "%.1f", percent*100) + "%"
-                cell.cumaltiveVegiPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+                cell.vegiPercent.text = String(format: "%.0f", percent*100) + "%"
+                cell.cumaltiveVegiPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
 
             case 3:
-                cell.grainPercent.text = String(format: "%.1f", percent*100) + "%"
-                cell.cumaltiveGrainPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+                cell.grainPercent.text = String(format: "%.0f", percent*100) + "%"
+                cell.cumaltiveGrainPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
 
             case 4:
-                cell.dairyPercent.text = String(format: "%.1f", percent*100) + "%"
-                cell.cumaltiveDairyPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+                cell.dairyPercent.text = String(format: "%.0f", percent*100) + "%"
+                cell.cumaltiveDairyPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
 
             case 5:
-                cell.oilPercent.text = String(format: "%.1f", percent*100) + "%"
-                cell.cumaltiveOilPercent.text = String(format: "%.1f", cumulativePercent*100) + "%"
+                cell.oilPercent.text = String(format: "%.0f", percent*100) + "%"
+                cell.cumaltiveOilPercent.text = String(format: "%.0f", cumulativePercent*100) + "%"
 
             default:
                 print("Unrecognized menu index")
