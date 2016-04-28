@@ -81,6 +81,8 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
         
         defaults.setObject(initial, forKey: "sliderValue")
         defaults.synchronize()
+        
+        commentsField.text = ""
     }
     
     //Upload image tapped
@@ -282,9 +284,10 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
                         print("user posted")
                         NSNotificationCenter.defaultCenter().postNotificationName("EndPost", object: nil)
                         
-                        let VC1 = self.storyboard!.instantiateViewControllerWithIdentifier("ContainerViewController") as! ContainerViewController
-                        let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
-                        self.presentViewController(navController, animated:true, completion: nil)
+//                        let VC1 = self.storyboard!.instantiateViewControllerWithIdentifier("ContainerViewController") as! ContainerViewController
+//                        let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
+//                        self.presentViewController(navController, animated:true, completion: nil)
+                        
                         
                     } else {
                         print(error)
@@ -304,9 +307,16 @@ class ManageProgressViewController: UIViewController, UIImagePickerControllerDel
     func didPost(notification: NSNotification) {
         //Stop loading indicator
         MBProgressHUD.hideHUDForView(self.view, animated: true)
-        
+
+        let alertController = UIAlertController(title: "Success", message: "Successfully Posted",preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
         //Go back to main profile page
 //        navigationController?.popViewControllerAnimated(true)
+        initialViews()
+        tableView.reloadData()
     }
     
     func failedPost(notification: NSNotification) {
